@@ -1,4 +1,4 @@
-package com.mgr.config;
+package com.client.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
@@ -10,5 +10,5 @@ import org.springframework.context.annotation.Configuration;
  * @time 2017/03/03
  */
 @Configuration
-@MapperScan("com.mgr.dao")
+@MapperScan("com.client.dao")
 public class MybatisCfg {}

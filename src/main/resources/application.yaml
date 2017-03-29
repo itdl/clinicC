@@ -8,17 +8,12 @@ server:
   tomcat:uri-encoding: UTF-8
 spring:
   #jsp渲染配置
-#  mvc:
-#    view:
-#      suffix: .jsp
-#      prefix: /WEB-INF/views/
-  #thymeleaf渲染
   thymeleaf:
     cache: false
     encoding: UTF-8
     mode: HTML5
     suffix: .html
-    prefix: /page/
+    prefix: /views/
   #数据源配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

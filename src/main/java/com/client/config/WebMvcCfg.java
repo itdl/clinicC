@@ -1,7 +1,7 @@
-package com.mgr.config;
+package com.client.config;
 
-import com.mgr.filter.SessionIntercepter;
-import com.mgr.util.GlobalVar;
+import com.client.filter.SessionIntercepter;
+import com.client.util.GlobalVar;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @author
  * @time 2017/3/9.
  */
-@Configuration
+//@Configuration
 public class WebMvcCfg extends WebMvcConfigurerAdapter {
 
     @Resource

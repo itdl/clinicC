@@ -1,4 +1,4 @@
-package com.mgr.util;
+package com.client.util;
 
 /**
  * 全局变量
@@ -7,6 +7,6 @@ package com.mgr.util;
  */
 public interface GlobalVar {
     String UINFO = "USERINFO";
-    String[] LGNURL = {"/main","/"};
+    String[] LGNURL = {"/",""};
     String URLS ="/**";
 }

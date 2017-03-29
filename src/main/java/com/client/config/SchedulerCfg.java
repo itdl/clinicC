@@ -1,4 +1,4 @@
-package com.mgr.config;
+package com.client.config;
 
 import com.alibaba.dubbo.common.logger.Logger;
 import com.alibaba.dubbo.common.logger.LoggerFactory;

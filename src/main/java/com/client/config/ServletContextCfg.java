@@ -1,4 +1,4 @@
-package com.mgr.config;
+package com.client.config;
 
 import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 import org.slf4j.Logger;

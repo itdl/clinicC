@@ -1,4 +1,4 @@
-package com;
+package com.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -14,11 +14,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SuppressWarnings("deprecation")
 @SpringBootApplication
-//@ImportResource("classpath:dubbo/dubbo-config.xml")
-/*解决logback的SMTPAppender后velocity日志模块报错，不使用velocity*/
 @EnableAutoConfiguration(exclude = {VelocityAutoConfiguration.class})
 @EnableScheduling
-@ServletComponentScan
+//@ServletComponentScan
 public class ApplicationMain {
     /**
      * 启动函数。

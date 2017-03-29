@@ -1,4 +1,4 @@
-package com.mgr.config;
+package com.client.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;

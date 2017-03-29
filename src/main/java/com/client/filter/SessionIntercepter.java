@@ -1,6 +1,6 @@
-package com.mgr.filter;
+package com.client.filter;
 
-import com.mgr.util.GlobalVar;
+import com.client.util.GlobalVar;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
