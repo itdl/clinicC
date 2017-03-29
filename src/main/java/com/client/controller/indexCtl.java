@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class indexCtl {
     @RequestMapping(value="/",method= RequestMethod.GET)
     public String goIndex(){
-        System.out.println("**************");
         return "index";
     }
 }
