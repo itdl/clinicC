@@ -1,0 +1,106 @@
+@charset "utf-8";
+.gaizi-yidong{
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	background-color: #666666;
+	opacity: 0.8;
+	z-index: 666;
+}
+
+.tip-box{
+	height: 180px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #444444;
+	opacity: 0.8;
+	z-index: 888;
+	display: none;
+}
+
+.yidong-erweima{
+	height: 140px;
+	float: left;
+	margin: 20px 0 0 10px;
+}
+
+.yidong-bottom-close{
+	height: 40px;
+	float: left;
+	margin: 70px 0px 0 10px;
+}
+
+.yidong-bottom-text{
+	display: inline-block;
+	float: left;
+	color: #FFFFFF;
+	font-size: 34px;
+	/*line-height: 46px;*/
+	margin: 46px 0 0 5px;
+}
+
+.yidong-bottom-btn{
+	width: 180px;
+	height: 80px;
+	float: right;
+	font-size: 36px;
+	background-color: transparent;
+	color: #0099FF;
+	border: 3px solid #0099FF;
+	border-radius: 5px;
+	margin: 50px 10px 0 0;
+}
+
+.yidong-content{
+	height: 595px;
+	width: 691px;
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 46%;
+	left: 50%;
+	transform: translate( -50%,-50% );
+	-webkit-transform: translate( -50%,-50% );
+	-moz-transform: translate( -50%,-50% );
+	-ms-transform: translate( -50%,-50% );
+	z-index: 888;
+	background: url(../images/yidong-content.png) no-repeat;
+	background-size: 100% 100%;
+	display: none;
+}
+
+.yidong-mingzi{
+	position: absolute;
+	left: 220px;
+	top: 36px;
+	font-size: 26px;
+	/*line-height: 26px;*/
+	color: #FFFFFF;
+	letter-spacing: 2px;
+}
+
+.yidong-content-close{
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 888;
+}
+
+.yidong-content-btn{
+	height: 63px;
+	width: 219px;
+	background:url(../images/yidong-content-btn.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	bottom: 45px;
+	left: 242px;
+	color: #FFFFFF;
+	font-size: 30px;
+}
