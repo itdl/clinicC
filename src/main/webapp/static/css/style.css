@@ -2276,10 +2276,10 @@ a {
 
 .yygh_box_con_dl_span1, .yygh_box_con_dl_span2, .yygh_box_con_dl_span3, .yygh_box_con_dl_span4 {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url(../images/yuyuantubiao.png) 0 0 no-repeat;
-    _background: url(../images/yiyuanguahao.png) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    background: url(../img/ditu.png) 0 0 no-repeat;
+    _background: url(../img/ditu.png) 0 0 no-repeat;
     font-size: 1px;
 }
 
