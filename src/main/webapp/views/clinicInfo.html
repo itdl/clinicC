@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="user-scalable = no"/>
+    <title>张育发诊所就诊预约平台</title>
+    <script charset="utf-8" src="/static/js/s.js"></script>
+    <script type="text/javascript">var logined = false;</script>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/rl_jquery.ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/rl_css.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/yidongduan.css"/>
+    <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/top.js"></script>
+    <script type="text/javascript" src="/static/js/hospitalslist.js"></script>
+    <script type="text/javascript" src="/static/js/loginpop.js"></script>
+    <script type="text/javascript" src="/static/js/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="/static/js/global.js"></script>
+    <script type="text/javascript" src="/static/js/userattention.js"></script>
+    <script type="text/javascript" src="/static/js/formater.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/static/js/validate_expand.js"></script>
+    <script type="text/javascript" src="/static/js/validate3.js"></script>
+    <script type="text/javascript" src="/static/js/gvalidate.js"></script>
+    <script type="text/javascript" src="/static/js/topdate.js"></script>
+    <script type="text/javascript" src="/static/js/regex.htm"></script>
+    <style>html #hm_t_undefined .hm-t-go-top {
+        position: fixed;
+        right: 2px;
+        bottom: 2px;
+        z-index: 99998;
+        cursor: pointer;
+        width: 40px;
+        height: 37px !important;
+        text-align: center;
+        white-space: normal;
+        font-size: 14px;
+        line-height: 17px;
+        padding-top: 3px;
+        color: #fff;
+        background: #404040;
+        *background-image: url(http://ecma.bdimg.com/holmes/t-popup-icons-png8.png);
+        _position: absolute;
+    }</style>
+</head>
+<body>
+<div id="dbnav">
+    <div class="dbnav_context">
+        <p class="dbnav_context_left">
+            <img src="/static/img/dbnav.png"/><span>电话预约:13942279217</span>
+        </p>
+        <p class="dbnav_context_right" id="isLogin">欢迎来到【张育发诊所就诊预约】平台，请
+            <a href="javascript:void(0);" class="db_denglu" onclick="center(&#39;#djdl&#39;,&#39;#djdl_close&#39;);">登录</a>
+            <a href="http://www.bjguahao.gov.cn/reg.htm" target="_blank">注册</a>
+        </p>
+    </div>
+</div>
+<div id="top">
+    <div class="top_left">
+        <a href="/">
+            <img src="/static/img/logo.jpg"/>
+            <h2 class="top_h2">张育发诊所就诊预约平台</h2>
+        </a>
+    </div>
+</div>
+
+<div id="djdl">
+    <div class="djdl_tab">
+        <div id="djdl_menui" class="djdl_menu">
+            <ul>
+                <li class="djdl_selected">快速登录</li>
+                <li>验证登录</li>
+            </ul>
+        </div>
+        <div id="djdl_tab_id" class="djdl_tab_box">
+
+            <form id="rg_nrfrom1" method="post" action="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm">
+                <div class="ksdl_ul">
+                    <div class="ysdl_tsyj">
+                        <p>温馨提示：已注册但未设置登录密码的用户须使用验证登录方式。</p>
+                    </div>
+                    <div class="vre_err">
+                        <span id="qresultspan"></span>
+                    </div>
+                    <dl class="djdl_ty_dl">
+                        <dt>手机号码：</dt>
+                        <dd>
+                            <input id="mobileQuickLogin" name="smsQuick" type="text" class="register_input"
+                                   maxlength="18" value="已注册手机号码"
+                                   onfocus="javascript:if(this.value==&#39;已注册手机号码&#39;)this.value=&#39;&#39;,style.color=&#39;#000&#39;; $(&#39;.hl_tsxx_yc&#39;).show()"
+                                   onblur="javascript:if(this.value==&#39;&#39;)this.value=&#39;已注册手机号码&#39;,style.color=&#39;#ccc&#39;;"
+                                   style="color: #ccc;"/><b class="tipinfo">*</b>
+                        </dd>
+                    </dl>
+                    <dl class="djdl_ty_dl">
+                        <dt>登录密码：</dt>
+                        <dd>
+                            <input type="password" name="passWordQuick" autocomplete="off" style="display:none" id="pw"/>
+                            <input id="pwQuickLogin" name="passWordQuick" type="passWord" autocomplete="off"
+                                   class="register_input" maxlength="18"/><b class="tipinfo">*</b>
+                            <b class="tipinfo"></b>
+                        </dd>
+                    </dl>
+                    <dl id="quick_login_yzm_dl" class="djdl_ty_dl" style="display: none;">
+                        <dt>验证码：</dt>
+                        <dd>
+                            <div style="float:left;">
+                                <input id="yzmQuickLogin" name="yzmQuick" maxlength="4" type="text"
+                                       class="register_inputa"/>
+                                <a href="javascript:reloadImage($(&#39;#quick_login_yzmdl&#39;));" class="sydl_yzmtp">
+                                    <img id="quick_login_yzmdl"
+                                         src="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm"
+                                         align="absmiddle" class="register_yzm"/></a>
+                                <a href="javascript:reloadImage($(&#39;#quick_login_yzmdl&#39;));"
+                                   class="sydl_new_hyz"></a>
+                            </div>
+                            <span><b class="tipinfo">*</b></span>
+                        </dd>
+                    </dl>
+                    <div class="tydiv">
+                        <input id="quick_login" name="submit" type="submit" class="ksdl_ul_denglu djdl_nav_qr"
+                               value="登录"/> <a href="http://www.bjguahao.gov.cn/reg.htm" class="ksdl_ul_register"
+                                              target="_blank">注册新用户</a>
+                    </div>
+                    <a href="javascript:void(0);" class="ksdl_ul_wjmm" onclick="popDiv();">忘记密码?</a>
+                </div>
+            </form>
+
+            <form id="rg_nrfrom2" method="post" action="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm"
+                  class="djdl_hide">
+                <div class="ysdl_ul">
+                    <div class="ysdl_tsyj">
+                        <p>温馨提示：已注册并设置登录密码的用户须使用快速登录方式。</p>
+                    </div>
+                    <div class="vre_err">
+                        <span id="vresultspan"></span>
+                    </div>
+                    <dl class="djdl_ty_dl">
+                        <dt>用户姓名：</dt>
+                        <dd>
+                            <input id="nameVerifyLogin" name="userName" type="text" class="register_input"
+                                   value="请填写已注册用户真实姓名"
+                                   onfocus="javascript:if(this.value==&#39;请填写已注册用户真实姓名&#39;)this.value=&#39;&#39;,style.color=&#39;#000&#39;;"
+                                   onblur="javascript:if(this.value==&#39;&#39;)this.value=&#39;请填写已注册用户真实姓名&#39;,style.color=&#39;#ccc&#39;;"
+                                   style="color:#ccc"/><b class="tipinfo">*</b>
+                        </dd>
+                    </dl>
+                    <dl class="djdl_ty_dl">
+                        <dt>证件号码：</dt>
+                        <dd>
+                            <input id="zjhmVerifyLogin" name="isshefn" type="text" class="register_input" maxlength="20"
+                                   value="与用户姓名对应的证件号码"
+                                   onfocus="javascript:if(this.value==&#39;与用户姓名对应的证件号码&#39;)this.value=&#39;&#39;,style.color=&#39;#000&#39;;"
+                                   onblur="javascript:if(this.value==&#39;&#39;)this.value=&#39;与用户姓名对应的证件号码&#39;,style.color=&#39;#ccc&#39;;"
+                                   style="color: #ccc;"/><b class="tipinfo">*</b>
+                        </dd>
+                    </dl>
+                    <dl class="djdl_ty_dl">
+                        <dt>手机号码：</dt>
+                        <dd>
+                            <input id="mobileVerifyLogin" name="sms" type="text" class="register_input" maxlength="18"
+                                   value="与证件号码绑定的手机号码"
+                                   onfocus="javascript:if(this.value==&#39;与证件号码绑定的手机号码&#39;)this.value=&#39;&#39;,style.color=&#39;#000&#39;; $(&#39;.hl_tsxx_yc&#39;).show()"
+                                   onblur="javascript:if(this.value==&#39;&#39;)this.value=&#39;与证件号码绑定的手机号码&#39;,style.color=&#39;#ccc&#39;;"
+                                   style="color: #ccc;"/><b class="tipinfo">*</b>
+                        </dd>
+                    </dl>
+                    <dl class="djdl_ty_dl">
+                        <dt>验证码：</dt>
+                        <dd>
+                            <div style="float:left;">
+                                <input id="yzmVerifyLogin" name="code" maxlength="4" type="text"
+                                       class="register_inputa"/> <a
+                                    href="javascript:reloadImage3($(&#39;#yzmdl&#39;),&#39;yzdl&#39;);"
+                                    class="sydl_yzmtp"><img id="yzmdl"
+                                                            src="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm"
+                                                            align="absmiddle" class="register_yzm"/> </a>
+                                <a href="javascript:reloadImage3($(&#39;#yzmdl&#39;),&#39;yzdl&#39;);"
+                                   class="sydl_new_hyz"></a>
+                                <input name="channel" type="hidden" value="yzdl"/>
+                            </div>
+                            <b class="tipinfo">*</b>
+                        </dd>
+                    </dl>
+                    <dl class="djdl_ty_dl">
+                        <dt>手机验证码：</dt>
+                        <dd>
+                            <input id="sjyzmVerifyLogin" name="smsCode"
+                                   onkeyup="this.value=this.value.replace(/\D/g,&#39;&#39;)"
+                                   onafterpaste="this.value=this.value.replace(/\D/g,&#39;&#39;)" maxlength="6"
+                                   type="text" class="register_inputa"/> <input id="btnSendCodeVLogin" name="yt0"
+                                                                               class="msjyz_dj" type="button"
+                                                                               value="获取验证码"/><b class="tipinfo">*</b>
+                        </dd>
+                    </dl>
+                    <div class="tydiv">
+                        <input id="verify_login" name="submit" type="submit" class="ysdl_ul_denglu djdl_nav_qr"
+                               value="登录"/> <a href="http://www.bjguahao.gov.cn/reg.htm" class="ysdl_ul_register"
+                                              target="_blank">注册新用户</a>
+                    </div>
+                </div>
+                <input name="smsType" type="hidden" value="2"/> <input id="loginLocation" name="loginLocation"
+                                                                      type="hidden" value="1"/>
+                <div class="hl_tsxx_yc">
+                    手机号码帮助：1.若您注册时没有绑定手机号码或您在114坐席系统预留的是座机号码，请填写您现有的手机号码与您的注册身份信息进行绑定。2.若您填写的手机号码与初始注册时绑定的手机号码不一致，请通过<a
+                        href="http://www.bjguahao.gov.cn/help/retracc1.htm">账号找回</a>修改绑定手机号。3.若您填写的手机号已被其他用户绑定，请输入其他有效手机号进行验证登录。
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div id="djdl_close">
+        <a></a>
+    </div>
+</div>
+<div id="djdl_fpassword" class="djdl_fpassword" style="display: none;">
+    <form id="rg_nrfrom6" method="post" action="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm">
+        <h3 class="djdl_fpassword_h3">密码找回</h3>
+        <div class="djdl_fpassword_content">
+            <div class="vre_err">
+                <span id="fpresultspan"></span>
+            </div>
+            <dl class="djdl_ty_dl">
+                <dt>证件号码：</dt>
+                <dd>
+                    <input id="djdl_fp_zjhm" name="isshefn" type="text" class="register_input"/><b class="tipinfo"></b>
+                </dd>
+            </dl>
+            <dl class="djdl_ty_dl">
+                <dt>验证码：</dt>
+                <dd>
+                    <input id="djdl_fp_yzm" name="code" maxlength="4" type="text" class="register_inputa"/> <a
+                        href="javascript:reloadImage3($(&#39;#djdl_fp_yzmdl&#39;),&#39;zhmm&#39;);"
+                        class="sydl_yzmtp"><img id="djdl_fp_yzmdl"
+                                                src="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm"
+                                                align="absmiddle" class="djdl_fp_yzm"/> </a> <a
+                        href="javascript:reloadImage3($(&#39;#djdl_fp_yzmdl&#39;),&#39;zhmm&#39;);"
+                        class="sydl_new_hyz"></a>
+                    <input name="channel" type="hidden" value="zhmm"/>
+                </dd>
+            </dl>
+            <dl class="djdl_ty_dl">
+                <dt>手机号码：</dt>
+                <dd>
+                    <input id="djdl_fp_sfzhm" name="sms" type="text" class="register_input"/><b class="tipinfo"></b>
+                </dd>
+            </dl>
+            <dl class="djdl_ty_dl">
+                <dt>手机验证码：</dt>
+                <dd>
+                    <input id="djdl_fp_sjyz" name="smsCode" type="text" class="register_inputa"/> <input
+                        id="btnSendCodeFPW" name="yt0" class="djdl_fpjyz_dj" type="button" value="获取验证码"/>
+                </dd>
+            </dl>
+            <input name="smsType" value="8" type="hidden"/> <input id="djdl_fp_qr2" name="button" type="button"
+                                                                  class="djdl_fp_qr2" value="确认" onclick="checkForm();"/>
+            <input name="submit" type="submit" class="djdl_fp_qr1" value="返回"/><br/>
+        </div>
+    </form>
+    <div id="djdl_fp_close">
+        <a></a>
+    </div>
+</div>
+<div id="djdl_fpsu" class="djdl_fpsu">
+    <form id="rg_nrfrom7" method="post" action="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm">
+        <h3 class="djdl_fpsu_h3">密码找回</h3>
+        <p class="djdl_twop_tsxp">请您输入您的新密码并确认</p>
+        <div class="djdl_fpsu_success">
+            <div class="vre_err">
+                <span id="fp2resultspan"></span>
+            </div>
+            <dl class="djdl_ty_dl">
+                <dt>设置密码：</dt>
+                <dd>
+                    <input id="passWordfp" name="passWord" type="password" autocomplete="off" class="register_input"/><b
+                        class="tipinfo"></b>
+                </dd>
+            </dl>
+            <dl class="djdl_ty_dl">
+                <dt>确认密码：</dt>
+                <dd>
+                    <input type="password" name="passWordAgain" autocomplete="off" style="display:none" id="pw2"/><input
+                        id="passWordAgainfp" name="passWordAgain" type="password" autocomplete="off"
+                        class="register_input"/><b class="tipinfo"></b>
+                </dd>
+            </dl>
+            <input name="submit" type="button" class="djdl_fpsu_qr2" value="确认修改" onclick="submitModifyPass();"/>
+        </div>
+    </form>
+    <div id="djdl_fpsu_close" class="tang_close" style="z-index:9999;">
+        <a></a>
+    </div>
+</div>
+<div class="djdl_fpsuts" id="djdl_fpsuts_success">
+    <h3 class="djdl_fpsuts_h3">密码找回</h3>
+    <div class="djdl_fpsuts_success">
+        <p>恭喜您密码修改成功</p>
+        <a href="http://www.bjguahao.gov.cn/logout.htm" class="djdl_fpsuts_jxdl">继续登录</a>
+    </div>
+    <div id="djdl_fpsuts_close" class="tang_close3">
+        <a></a>
+    </div>
+</div>
+<div id="djdl_fpfalse" class="djdl_fpfalse">
+    <h3 class="djdl_fpfalse_h3">密码找回</h3>
+    <div class="djdl_fpfalse_success">
+        <p>
+            您的手机验证码输入错误，如果您的绑定手机号码有误<br/>请点击“账号找回”。
+        </p>
+        <a href="javascript:$(&#39;#djdl_fpfalse&#39;).hide();popDiv();" class="djdl_fpfalse_callback">返回</a> <a
+            href="http://www.bjguahao.gov.cn/help/retracc1.htm" class="djdl_fpfalse_zhzh">账号找回</a>
+    </div>
+    <div id="djdl_fpfalse_close">
+        <a href="javascript:void(0)" class="tang_close_ZH"></a>
+    </div>
+</div>
+<div id="djdl_twoperson" class="djdl_twoperson" style="display:none"></div>
+<div id="djdl_twoperson5" class="djdl_twoperson5">
+    <h3 class="djdl_twoperson_h3">用户登录</h3>
+    <div class="djdl_tw_success">
+        <p id="setsus">密码设置成功，欢迎您来到北京市预约挂号统一平台</p>
+        <a id="djdl_twop_qr" class="djdl_twop_qr tang_close2">确认</a>
+    </div>
+    <div id="djdl_twoperson5_close" class="tang_close2">
+        <a></a>
+    </div>
+</div>
+<!--登录之后的弹窗-->
+<div id="denglucg">
+    <!--解决ie6下select覆盖问题-->
+    <iframe style="position:absolute;width:100%;height:100%;_filter:alpha(opacity=0);opacity:0;border-style:none;z-index:-1;border:0"
+            src="/static/js/saved_resource.html"></iframe>
+    <!--解决ie6下select覆盖问题 结束-->
+    <div class="denglucg_tp">
+        <img src="/static/img/denglucheng.jpg"/>
+        <p>登录成功</p>
+    </div>
+</div>
+<script>
+    /*点击登录的弹窗*/
+    $(document).ready(function () {
+        $(".db_denglu").click(function () {
+            popCenterWindow("#djdl", ".ksdl_ul_denglu", "#djdl_close");
+            reloadImage3($('#yzmdl'), 'yzdl');
+        });
+    });
+
+    var windowHeight;
+
+    var windowWidth;
+
+    var popWidth;
+
+    var popHeight;
+    function init(odiv) {
+        windowHeight = $(window).height();
+        windowWidth = $(window).width();
+        popHeight = $(odiv).outerHeight();
+        popWidth = $(odiv).outerWidth();
+    }
+
+    function popCenterWindow(odiv, clos, clos2) {
+        init(odiv);
+
+        var popY = (windowHeight - popHeight) / 2;
+        var popX = (windowWidth - popWidth) / 2;
+
+        $(odiv).css("top", popY + $(window).scrollTop()).css("left", popX)
+            .show();
+        $("#bg").css({
+            display: "block",
+            height: $(document).height()
+        });
+
+        $(window).on('resize scroll', function () {
+            $(odiv).css("top", popY + $(window).scrollTop()).css("left", popX);
+        });
+    }
+
+    function popCenterWindow2(odiv2) {
+        init(odiv2);
+
+        var popY = (windowHeight - popHeight) / 2;
+        var popX = (windowWidth - popWidth) / 2;
+
+        $(odiv2).css("top", popY + $(window).scrollTop()).css("left", popX)
+            .show(200).delay(2000).hide(100);
+
+        $(window).on(
+            'resize scroll',
+            function () {
+                $(odiv2).css("top", popY + $(window).scrollTop()).css(
+                    "left", popX);
+            });
+    }
+
+    var btnCloseTang = $("#djdl_close > a");
+     btn.onclick = function() {
+     var div = $("#djdl");
+     div.css({
+     "display" : "none"
+     });
+     $("#bg").css("display", "none");
+     }
+    $("#djdl_close").click(function () {
+        $("#djdl").css({
+            "display": "none"
+        });
+        $("#bg").css("display", "none");
+    });
+
+     var btnCl = document.getElementById("djdl_fp_close");
+     btnCl.onclick=function(){
+     var divs = $("#djdl_fpassword");
+     divs.css({"display":"none"});
+     $("#bg").css("display", "none");
+     };
+
+    $("#djdl_fp_close").click(function () {
+        $("#djdl_fpassword").css({
+            "display": "none"
+        });
+        $("#bg").css({
+            "display": "none"
+        });
+    });
+
+    $(".tang_close").click(function () {
+        $("#djdl_fpsu").css({
+            "display": "none"
+        });
+        $("#bg").css({
+            "display": "none"
+        });
+    });
+
+    $(".tang_close2").click(function () {
+        $("#djdl_twoperson5").css({
+            "display": "none"
+        });
+        $("#bg").css({
+            "display": "none"
+        });
+    });
+    $(".tang_close3").click(function () {
+        $("#djdl_fpsuts_success").css({
+            "display": "none"
+        });
+        $("#bg").css({
+            "display": "none"
+        });
+    });
+
+    $(".tang_close_ZH").click(function () {
+        $("#djdl_fpfalse").css({
+            "display": "none"
+        });
+        $("#bg").css({
+            "display": "none"
+        });
+    });
+
+    $(function () {
+        $.ms_DatePicker({
+            YearSelector: ".sel_year",
+            MonthSelector: ".sel_month",
+            DaySelector: ".sel_day"
+        });
+        $.ms_DatePicker();
+    });
+</script>
+<div id="ksorder_top">
+    <div class="ksorder_div">
+        <ul class="ksorder_ul">
+            <li><a href="http://www.bjguahao.gov.cn/hp/appoint/105.htm" class="ksorder_ul_color">预约信息</a></li>
+            <li><a href="http://www.bjguahao.gov.cn/hp/info/105.htm">诊所介绍</a></li>
+            <li><a href="http://www.bjguahao.gov.cn/hp/notice/105.htm">预约须知</a></li>
+            <li><a href="http://www.bjguahao.gov.cn/hp/stopInfo/105,1.htm">停诊信息</a></li>
+            <li><a href="http://www.bjguahao.gov.cn/hp/cancel/105.htm">查询/取消</a></li>
+        </ul>
+    </div>
+    <div class="ksorder_box">
+        <div class="ksorder_box_top">
+            <p class="ksorder_box_top_p">
+                <strong>（辽·鞍）张育发内科综合门诊部</strong>
+            </p>
+        </div>
+        <div class="ksorder_box_content">
+            <div class="ksorder_c_left">
+                <dl class="ksorder_box_con_dl">
+                    <dt><img src="/static/js/105.jpg"
+                             onerror="if (this.src != 'http://img.bjguahao.gov.cn/naja/default/images/moren.jpg') this.src = 'http://img.bjguahao.gov.cn/naja/default/images/moren.jpg';"/>
+                    </dt>
+                    <dd>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span1"></span></dt>
+                            <dd><p>辽宁省鞍山市铁东区长大街28栋87号</p></dd>
+                        </dl>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span2"></span></dt>
+                            <dd><p><a href="http://www.trhos.com/" target="_blank">http://www.trhos.com/</a></p></dd>
+                        </dl>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span3"></span></dt>
+                            <dd><p>13942279217</p></dd>
+                        </dl>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span4"></span></dt>
+                            <dd><p> 乘坐公交64路到长大转盘下车既是</p></dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="yiyuanjieshao">
+    <div class="yiyuanjieshao_title"><p>医院介绍</p></div>
+    <div class="yiyuanjieshao_context"><p><span
+            style="font: 14px/24px 微软雅黑, Microsoft YaHei; color: rgb(63, 63, 63); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;">北京同仁医院是一所以眼科、耳鼻咽喉科和心血管疾病诊疗为重点的百年老院,是一家大型综合性三甲医院。 北京同仁医院眼科的特长是在眼底病、眼外伤、青光眼、角膜移植、眼部整形、激光诊疗； 北京同仁医院耳鼻咽喉科在人工耳蜗植入、全耳再造、听力康复、头颈肿瘤治疗、气管异物取出、鼻内窥镜技术、睡眠呼吸暂停综合症治疗等方面处于国内领先地位，某些领域达到国际先进水平。 北京同仁医院设有知名专家汇集的北京市眼科会诊中心、北京市耳鼻咽喉科会诊中心、北京市糖尿病综合会诊中心、北京泌尿外科会诊中心，还建立了国际眼病诊疗中心、白内障防治中心、屈光矫治中心、验光配镜及隐形眼镜中心、鼻眼相关疾病诊疗中心、睡眠呼吸监测中心、临床听力学中心以及人工耳蜗植入中心等全方位医疗服务体系。<span
+            style="font: 14px/24px 微软雅黑, Microsoft YaHei; color: rgb(51, 51, 51); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"
+            class="Apple-converted-space"></span></span></p>
+        <p>&nbsp;</p>
+        <p><br/></p>
+        <p><br/></p></div>
+</div>
+<div id="bg"></div>
+<div id="footer">
+    <div class="footer_nb">
+        <div class="footer_yb">
+            <ul class="footer_ul">
+                <li><a href="javascript:void(0);">联系我们</a></li>
+                <li><a href="javascript:void(0);">服务协议</a></li>
+                <li><a href="javascript:void(0);">意见反馈</a></li>
+                <li><a>版权所有:辽ICP备05056889号</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function goonLogin() {
+        $(".djdl_fpsuts").hide();
+        popCenterWindow("#djdl", "#djdl_close");
+        reloadImage($("#yzmdl"));
+    }
+    function submitModifyPass() {
+        var a = $("#passWordfp"), b = $("#passWordAgainfp");
+        if (!a.valid())return !1;
+        if (!b.valid())return !1;
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: basePath + "help/rpassword.htm",
+            data: {pass: a.val(), isAjax: !0},
+            success: function (a) {
+                a.hasError ? alert(a.msg) : ($("#djdl_fpsu").css({display: "none"}), popCenterWindow(".djdl_fpsuts", "#djdl_fpsuts_close"));
+            }
+        });
+    }
+    function checkForm() {
+        var a = $("#djdl_fp_zjhm").val(), b = $("#djdl_fp_yzm").val(), c = $("#djdl_fp_sfzhm").val(),
+            d = $("#djdl_fp_sjyz").val();
+        if (!$("#djdl_fp_zjhm").valid())return !1;
+        if (!$("#djdl_fp_yzm").valid())return !1;
+        if (!$("#djdl_fp_sfzhm").valid())return !1;
+        if (!$("#djdl_fp_sjyz").valid())return !1;
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: basePath + "help/fpassword.htm",
+            data: {cardNo: a, imageCode: b, phoneNo: c, phoneCode: d, isAjax: !0, channel: "zhmm"},
+            success: function (a) {
+                a.hasError ?
+                    alert(a.msg) : ($("#djdl_fp_close").click(), popCenterWindow("#djdl_fpsu", "#djdl_fpsu_close"));
+            }
+        });
+    }
+    function popDiv() {
+        $("#djdl_close").click();
+        popCenterWindow("#djdl_fpassword", "#djdl_fp_close");
+        reloadImage3($("#djdl_fp_yzmdl"), "zhmm");
+    }
+</script>
+</body>
+</html>

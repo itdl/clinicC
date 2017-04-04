@@ -13,4 +13,24 @@ public class indexCtl {
     public String goIndex(){
         return "index";
     }
+
+    @RequestMapping(value="/cinfo",method= RequestMethod.GET)
+    public String clinicInfo(){
+        return "clinicInfo";
+    }
+
+    @RequestMapping(value="/ninfo",method= RequestMethod.GET)
+    public String noticeInfo(){
+        return "noticeInfo";
+    }
+
+    @RequestMapping(value="/stopRepn",method= RequestMethod.GET)
+    public String stopRepn(){
+        return "stopRepn";
+    }
+
+    @RequestMapping(value="/sc",method= RequestMethod.GET)
+    public String selCancel(){
+        return "selCancel";
+    }
 }
