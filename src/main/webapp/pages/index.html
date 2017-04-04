@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymleaf.org">
 <head>
     <title>张育发诊所就诊预约平台</title>
-    <link th:replace="head :: head"/>
+    <link th:replace="commn/head :: head"/>
 </head>
 <body>
-<div th:replace="common :: div"/>
+<div th:replace="commn/common :: div"/>
 <div id="ksorder_top">
     <div class="ksorder_div">
         <ul class="ksorder_ul">
-            <li><a href="http://www.bjguahao.gov.cn/hp/appoint/105.htm" class="ksorder_ul_color">预约信息</a></li>
-            <li><a href="http://www.bjguahao.gov.cn/hp/info/105.htm">诊所介绍</a></li>
-            <li><a href="http://www.bjguahao.gov.cn/hp/notice/105.htm">预约须知</a></li>
-            <li><a href="http://www.bjguahao.gov.cn/hp/stopInfo/105,1.htm">停诊信息</a></li>
-            <li><a href="http://www.bjguahao.gov.cn/hp/cancel/105.htm">查询/取消</a></li>
+            <li><a href="/" class="ksorder_ul_color">预约信息</a></li>
+            <li><a href="/cinfo">诊所介绍</a></li>
+            <li><a href="/ninfo">预约须知</a></li>
+            <li><a href="/stopRepn">停诊信息</a></li>
+            <li><a href="/sc">查询/取消</a></li>
         </ul>
     </div>
     <div class="ksorder_box">
@@ -168,12 +168,7 @@
             </div>
         </div>
     </div>
-    <div id="ksorder_djgh_doctor">
-        <div class="ksorder_djgh_dr1">
-        </div>
-    </div>
 </div>
-<div id="bg"></div>
 <div id="footer">
     <div class="footer_nb">
         <div class="footer_yb">

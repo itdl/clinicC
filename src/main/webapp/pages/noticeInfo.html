@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>张育发诊所就诊预约平台</title>
+    <link th:replace="commn/head :: head"/>
+</head>
+<body>
+<div th:replace="commn/common :: div"/>
+<div id="ksorder_top">
+    <div class="ksorder_div">
+        <ul class="ksorder_ul">
+            <li><a href="/">预约信息</a></li>
+            <li><a href="/cinfo">诊所介绍</a></li>
+            <li><a href="/ninfo" class="ksorder_ul_color">预约须知</a></li>
+            <li><a href="/stopRepn">停诊信息</a></li>
+            <li><a href="/sc">查询/取消</a></li>
+        </ul>
+    </div>
+    <div class="ksorder_box">
+        <div class="ksorder_box_top">
+            <p class="ksorder_box_top_p">
+                <strong>（辽·鞍）张育发内科综合门诊部</strong>
+            </p>
+        </div>
+        <div class="ksorder_box_content">
+            <div class="ksorder_c_left">
+                <dl class="ksorder_box_con_dl">
+                    <dt><img src="/static/img/moren.jpg"/></dt>
+                    <dd>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span1"></span></dt>
+                            <dd><p>辽宁省鞍山市铁东区长大街28栋87号</p></dd>
+                        </dl>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span2"></span></dt>
+                            <dd><p><a href="http://www.trhos.com/" target="_blank">http://www.trhos.com/</a></p></dd>
+                        </dl>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span3"></span></dt>
+                            <dd><p>13942279217</p></dd>
+                        </dl>
+                        <dl>
+                            <dt><span class="yygh_box_con_dl_span4"></span></dt>
+                            <dd><p> 乘坐公交64路到长大转盘下车既是</p></dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="yuyuexuzhi">
+    <div class="yuyuexuzhi_title">
+        <p>预约须知</p>
+    </div>
+    <div class="yuyuexuzhi_context">
+        <p align="center" style="font-size: 18px; font-weight: bold;">
+            首都医科大学附属北京同仁医院预约服务须知
+        </p>
+        <p>
+            <br/>根据《北京市卫生局关于进一步加强医师出诊管理 改善预约挂号服务工作的通知》（京卫医字〔2011〕98号）要求，各医院要严格落实实名制就医制度，
+            患者(不包括急诊)就诊时，必须凭有效身份证明实名挂号。医院提供预约挂号服务时，必须要登记代表患者身份识别唯一性的实名信息(包括姓名、身份证号、医保卡号等)，在预约、挂(取)号、分诊等环节核实患者实名身份信息。有效身份证件包括：身份证、户口本、社保卡、驾驶证、护照、暂住证、军人证等。<br/>
+            <br/><br/><strong>预约方式</strong><br/>
+            为方便患者挂号，合理安排就诊时间，医院为患者提供多种途径的分时段预约挂号服务，用户可通过电话、网络实现预约挂号，北京市居民还可通过社区转诊享受便捷的转诊预约服务。<br/>
+            电话预约挂号：北京用户114，非北京用户010-114<br/> 网络预约挂号：www.bjguahao.gov.cn<br/> 社区转诊预约：详情请咨询所在社区卫生站<br/><br/><strong>预约时间范围：</strong><br/>
+            预约期限为7天（试点）；所有科室、所有号源均可预约，约满为止。每日14:00停止预约次日号源，8:45开放最新一天号源。<br/><br/><strong>预约实名制：</strong><br/>
+            预约时，请您如实提供就诊患者真实姓名、身份证号（儿童患者需提供户口本上的出生编号）等信息。<br/><br/><strong>就诊取号：</strong><br/>
+            预约成功后，请患者于就诊当日凭本人有效身份证件（
+            医保患者需持社保卡）、实名就诊卡及预约识别码到收费窗口取号，就诊取号时出示的身份信息必须与预约时提供的患者身份信息一致，否则医院不提供预留的号源。完成取号后在分诊台报到进入叫号系统。<br/><br/><strong>取号时间：</strong><br/>
+            医院为患者提供的是分时段预约号源，请根据成功短信提示的时间取号，过时不取，号源自动作废。挂号处早7:00开放，下午预约取号请在就诊当日11:30之后领取（东区特需12:40之后领取）。患者须在就诊前30分钟取号。<br/><br/><strong>取号地点：</strong><br/>
+            患者在就诊院区内所有开放的收费窗口（除专用窗口）均可取号。<br/><br/><strong>就诊顺序： </strong><br/>
+            预约挂号患者的就诊顺序以当天门诊挂号条显示号序为准。挂号后请到挂号条上标明的诊区分诊台报到后等待就诊。<br/><br/><strong>医生停诊：</strong><br/>
+            医生停诊不可避免，给您造成的不便敬请谅解。医生临时停诊，服务人员电话通知已预约的用户，请配合更改就诊日期或更换其他医生。<br/><br/><strong>改 号：</strong><br/>
+            已成功预约的挂号信息不可更改，如更改需要拨打114退订原信息后重新预约。<br/><br/><strong>取消预约：</strong><br/>
+            如您无法按时就诊，请务必在就诊日前一天下午14:00点之前通过网站或者114电话凭预约识别码进行取消。<br/><br/><strong>爽约处理：</strong><br/>
+            1、如预约成功后患者未能按时就诊且不办理取消预约号视为爽约。<br/> 2、一年内（自然年）爽约1次，自爽约之日起30日内停止预约挂号服务；<br/> 　
+            一年内（自然年）累计爽约2次，自最后一次爽约之日起60日内停止预约挂号服务；<br/>一年内（自然年）累计爽约3次，自最后一次爽约之日起90日内停止预约挂号服务；<br/> 　
+            以此类推。<br/><br/><strong>预约限制：</strong><br/>
+            患者每次限约一个号，每天预约不能超过两次，同一科室只能预约一次。一个月退预约号三次即进入违约名单，十二个月内您将无法使用预约挂号服务。<br/><br/><strong>其他注意事项：</strong><br/>
+            1、预约挂号同仁医院东西院-眼科特需门诊部的患者，就诊当日须出示预约挂号成功时收到的原始预约成功短信取号就诊。<br/> 2、北京同仁医院眼科特需号、足踝中心张建中特需号均为自费。<br/>
+            3、特需收费标准有别于普通门诊，具体情况可到东区特需门诊咨询。<br/>
+            4、预约同仁医院东院-屈光号源的患者，年龄须在18至50周岁之间，并欲进行近视眼手术，（注：就诊前一周请勿佩戴隐形眼镜）。近视、斜视、弱视患者请预约眼肌科号源。<br/>
+            5、部分科室的医生挂号费，以医院当日实际出诊情况为准。<br/> 6、到医院取号时请告知挂号人员取预约号。<br/><br/><strong>医院咨询电话：</strong>010 - 5826
+            6699<br/><br/><strong>本服务仅向用户提供便捷的预约方式，不承诺所有患者随时都能预约到指定的号。 </strong>
+        </p>
+    </div>
+</div>
+<div id="footer">
+    <div class="footer_nb">
+        <div class="footer_yb">
+            <ul class="footer_ul">
+                <li><a href="javascript:void(0);">联系我们</a></li>
+                <li><a href="javascript:void(0);">服务协议</a></li>
+                <li><a href="javascript:void(0);">意见反馈</a></li>
+                <li><a>版权所有:辽ICP备05056889号</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script charset="utf-8" src="/static/js/s.js"></script>
+<script type="text/javascript">var logined = false;</script>
+<script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/top.js"></script>
+<script type="text/javascript" src="/static/js/hospitalslist.js"></script>
+<script type="text/javascript" src="/static/js/loginpop.js"></script>
+<script type="text/javascript" src="/static/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/static/js/global.js"></script>
+<script type="text/javascript" src="/static/js/userattention.js"></script>
+<script type="text/javascript" src="/static/js/formater.js"></script>
+<script type="text/javascript" src="/static/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/static/js/validate_expand.js"></script>
+<script type="text/javascript" src="/static/js/validate3.js"></script>
+<script type="text/javascript" src="/static/js/gvalidate.js"></script>
+<script type="text/javascript" src="/static/js/topdate.js"></script>
+<script type="text/javascript" src="/static/js/regex.htm"></script>
+
+<script type="text/javascript">
+    function goonLogin() {
+        $(".djdl_fpsuts").hide();
+        popCenterWindow("#djdl", "#djdl_close");
+        reloadImage($("#yzmdl"));
+    }
+    function submitModifyPass() {
+        var a = $("#passWordfp"), b = $("#passWordAgainfp");
+        if (!a.valid())return !1;
+        if (!b.valid())return !1;
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: basePath + "help/rpassword.htm",
+            data: {pass: a.val(), isAjax: !0},
+            success: function (a) {
+                a.hasError ? alert(a.msg) : ($("#djdl_fpsu").css({display: "none"}), popCenterWindow(".djdl_fpsuts", "#djdl_fpsuts_close"));
+            }
+        });
+    }
+    function checkForm() {
+        var a = $("#djdl_fp_zjhm").val(), b = $("#djdl_fp_yzm").val(), c = $("#djdl_fp_sfzhm").val(),
+            d = $("#djdl_fp_sjyz").val();
+        if (!$("#djdl_fp_zjhm").valid())return !1;
+        if (!$("#djdl_fp_yzm").valid())return !1;
+        if (!$("#djdl_fp_sfzhm").valid())return !1;
+        if (!$("#djdl_fp_sjyz").valid())return !1;
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: basePath + "help/fpassword.htm",
+            data: {cardNo: a, imageCode: b, phoneNo: c, phoneCode: d, isAjax: !0, channel: "zhmm"},
+            success: function (a) {
+                a.hasError ?
+                    alert(a.msg) : ($("#djdl_fp_close").click(), popCenterWindow("#djdl_fpsu", "#djdl_fpsu_close"));
+            }
+        });
+    }
+    function popDiv() {
+        $("#djdl_close").click();
+        popCenterWindow("#djdl_fpassword", "#djdl_fp_close");
+        reloadImage3($("#djdl_fp_yzmdl"), "zhmm");
+    }
+</script>
+</body>
+</html>
