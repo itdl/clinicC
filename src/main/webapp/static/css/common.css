@@ -1,0 +1,18 @@
+html #hm_t_undefined .hm-t-go-top {
+    position: fixed;
+    right: 2px;
+    bottom: 2px;
+    z-index: 99998;
+    cursor: pointer;
+    width: 40px;
+    height: 37px !important;
+    text-align: center;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 3px;
+    color: #fff;
+    background: #404040;
+    background-image: url(../img/t-popup-icons-png8.png);
+    _position: absolute;
+}

@@ -94,7 +94,7 @@ function center(obj,bgcol) {
 		
 	});
 	$("#bg").css({display: "block", height: $(document).height()});
-   closeWindow(bgcol);
+    closeWindow(bgcol);
 }
 //关闭窗口的方法 
 function closeCenterWindow(bgcol){ 

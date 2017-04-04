@@ -354,7 +354,7 @@ a {
     padding-left: 64px;
     padding-top: 10px;
     padding-bottom: 13px;
-    background: url(../images/sytc_bg.jpg) center center no-repeat #fff;
+    background: url(../img/sytc_bg.jpg) center center no-repeat #fff;
 }
 
 .djdl_tab_box .djdl_hide {
@@ -369,7 +369,6 @@ a {
 .ksdl_ul {
     width: 479px;
     padding-left: 9px;
-    padding-top: 14px;
     overflow: hidden;
 }
 
@@ -402,6 +401,7 @@ a {
 }
 
 .ksdl_ul_denglu {
+    background: url(../img/anniud2.png) no-repeat;
     display: inline-block;
     width: 108px;
     height: 42px;
@@ -416,15 +416,16 @@ a {
 }
 
 .ksdl_ul_register {
+    background: url(../img/anniud2.png) no-repeat;
     display: inline-block;
     width: 108px;
     height: 42px;
     line-height: 42px;
     text-align: center;
     margin-left: 36px;
-    color: #FFFFFF;
     float: left;
     font-size: 14px;
+    color: #FFFFFF;
 }
 
 .ksdl_ul .ksdl_ul_wjmm {
@@ -493,8 +494,7 @@ a {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background: url(../images/dl_close.png) no-repeat;
-    _background: url(../images/dl_close2.png) no-repeat;
+    background: url(../img/dl_close.png) no-repeat;
     background-size: 40px 40px;
 }
 
@@ -513,7 +513,7 @@ a {
 
 .ysdl_ul_denglu {
     display: inline-block;
-    background: url(../images/anniud2.png) no-repeat;
+    background: url(../img/anniud2.png) no-repeat;
     width: 108px;
     height: 42px;
     line-height: 42px;
@@ -528,7 +528,7 @@ a {
 
 .ysdl_ul_register {
     display: inline-block;
-    background: url(../images/anniud2.png) no-repeat;
+    background: url(../img/anniud2.png) no-repeat;
     width: 108px;
     height: 42px;
     line-height: 42px;
