@@ -6,49 +6,7 @@
 </head>
 <body>
 <div th:replace="commn/common :: div"/>
-<div id="ksorder_top">
-    <div class="ksorder_div">
-        <ul class="ksorder_ul">
-            <li><a href="/">预约信息</a></li>
-            <li><a href="/cinfo" class="ksorder_ul_color">诊所介绍</a></li>
-            <li><a href="/ninfo">预约须知</a></li>
-            <li><a href="/stopRepn">停诊信息</a></li>
-            <li><a href="/sc">查询/取消</a></li>
-        </ul>
-    </div>
-    <div class="ksorder_box">
-        <div class="ksorder_box_top">
-            <p class="ksorder_box_top_p">
-                <strong>（辽·鞍）张育发内科综合门诊部</strong>
-            </p>
-        </div>
-        <div class="ksorder_box_content">
-            <div class="ksorder_c_left">
-                <dl class="ksorder_box_con_dl">
-                    <dt><img src="/static/img/moren.jpg"/></dt>
-                    <dd>
-                        <dl>
-                            <dt><span class="yygh_box_con_dl_span1"></span></dt>
-                            <dd><p>辽宁省鞍山市铁东区长大街28栋87号</p></dd>
-                        </dl>
-                        <dl>
-                            <dt><span class="yygh_box_con_dl_span2"></span></dt>
-                            <dd><p><a href="http://www.trhos.com/" target="_blank">http://www.trhos.com/</a></p></dd>
-                        </dl>
-                        <dl>
-                            <dt><span class="yygh_box_con_dl_span3"></span></dt>
-                            <dd><p>13942279217</p></dd>
-                        </dl>
-                        <dl>
-                            <dt><span class="yygh_box_con_dl_span4"></span></dt>
-                            <dd><p> 乘坐公交64路到长大转盘下车既是</p></dd>
-                        </dl>
-                    </dd>
-                </dl>
-            </div>
-        </div>
-    </div>
-</div>
+<div th:replace="commn/ksorder :: ksorder_top"/>
 <div class="yiyuanjieshao">
     <div class="yiyuanjieshao_title">
         <p>医院介绍</p>
@@ -79,21 +37,10 @@
     </div>
 </div>
 
-<script charset="utf-8" src="/static/js/s.js"></script>
-<script type="text/javascript">var logined = false;</script>
 <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery.js"></script>
-<script type="text/javascript" src="/static/js/top.js"></script>
-<script type="text/javascript" src="/static/js/hospitalslist.js"></script>
-<script type="text/javascript" src="/static/js/loginpop.js"></script>
 <script type="text/javascript" src="/static/js/global.js"></script>
-<script type="text/javascript" src="/static/js/userattention.js"></script>
 <script type="text/javascript" src="/static/js/formater.js"></script>
-<script type="text/javascript" src="/static/js/jquery.validate.js"></script>
-<script type="text/javascript" src="/static/js/validate_expand.js"></script>
-<script type="text/javascript" src="/static/js/validate3.js"></script>
-<script type="text/javascript" src="/static/js/gvalidate.js"></script>
-<script type="text/javascript" src="/static/js/topdate.js"></script>
+<script type="text/javascript" src="/static/appjs/clinicInfo.js"></script>
 
 <script type="text/javascript">
     function goonLogin() {

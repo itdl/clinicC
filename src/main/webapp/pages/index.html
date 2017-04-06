@@ -6,9 +6,7 @@
 </head>
 <body>
 <div th:replace="commn/common :: div"/>
-
 <div th:replace="commn/ksorder :: ksorder_top"/>
-
 <div id="ksorder_time">
     <div class="ksorder_time_title">
         <p class="ksorder_t_p"><strong>门诊预约信息</strong></p>
@@ -104,12 +102,7 @@
                 <h4>预约规则</h4>
                 <ul>
                     <li><span>更新时间：</span>每日8:45更新</li>
-                    <li><span>预约周期：</span>7
-                        <script type="text/javascript">
-                            document.write(fmt.formatFHPeriodUnit('1'));
-                        </script>
-                        天
-                    </li>
+                    <li><span>预约周期：</span>7天</li>
                     <li><span>停挂时间：</span> 下午14:00停止次日预约挂号</li>
                     <li><span>退号时间：</span> 就诊前一日14:00前取消</li>
                 </ul>
@@ -129,7 +122,6 @@
         </div>
     </div>
 </div>
-<div id="bg"></div>
 <div id="footer">
     <div class="footer_nb">
         <div class="footer_yb">
@@ -143,22 +135,10 @@
     </div>
 </div>
 
-<script charset="utf-8" src="/static/js/s.js"></script>
-<script type="text/javascript">var logined = false;</script>
 <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery.js"></script>
-<script type="text/javascript" src="/static/js/top.js"></script>
-<script type="text/javascript" src="/static/js/hospitalslist.js"></script>
-<script type="text/javascript" src="/static/js/loginpop.js"></script>
 <script type="text/javascript" src="/static/js/global.js"></script>
-<script type="text/javascript" src="/static/js/userattention.js"></script>
 <script type="text/javascript" src="/static/js/formater.js"></script>
-<script type="text/javascript" src="/static/js/jquery.validate.js"></script>
-<script type="text/javascript" src="/static/js/validate_expand.js"></script>
-<script type="text/javascript" src="/static/js/validate3.js"></script>
-<script type="text/javascript" src="/static/js/gvalidate.js"></script>
-<script type="text/javascript" src="/static/js/topdate.js"></script>
-
+<script type="text/javascript" src="/static/appjs/index.js"></script>
 <script type="text/javascript">
     function goonLogin() {
         $(".djdl_fpsuts").hide();

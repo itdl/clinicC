@@ -2276,10 +2276,10 @@ a {
 
 .yygh_box_con_dl_span1, .yygh_box_con_dl_span2, .yygh_box_con_dl_span3, .yygh_box_con_dl_span4 {
     display: inline-block;
-    width: 18px;
-    height: 18px;
-    background: url(../img/ditu.png) 0 0 no-repeat;
-    _background: url(../img/ditu.png) 0 0 no-repeat;
+    width: 20px;
+    height: 20px;
+    background: url(../img/tubiao.png) 0 0 no-repeat;
+    _background: url(../img/tubiao.png) 0 0 no-repeat;
     font-size: 1px;
 }
 
@@ -2863,10 +2863,10 @@ a {
 
 .tingzhengxingxi_context h2 {
     width: 400px;
-    height: 50px;
+    height: 30px;
     margin: 0 auto;
     text-align: center;
-    margin-top: 24px;
+    margin-top: 6px;
     font-weight: normal;
 }
 
@@ -8136,6 +8136,7 @@ a {
 .ksorder_box_con_dl dd dl {
     width: 446px;
     overflow: hidden;
+    margin-bottom: 6px;
 }
 
 .ksorder_box_con_dl dd dl dt, .ksorder_box_con_dl dd dl dd {
@@ -8223,6 +8224,7 @@ a {
     padding: 10px;
     overflow: hidden;
     line-height: 29px;
+    background-color: #f4f6fa;
 }
 
 .ksorder_t_p {
@@ -8410,7 +8412,7 @@ a {
 
 /*右边预约规则*/
 .ksorder_cen_r {
-    width: 262px;
+    width: 265px;
     height: 344px;
     overflow: hidden;
     padding-left: 4px;
@@ -8419,7 +8421,7 @@ a {
 }
 
 .ksorder_cen_r_top {
-    width: 263px;
+    width: 265px;
     height: 144px;
     padding-top: 6px;
     overflow: auto;
@@ -8450,7 +8452,7 @@ a {
 
 .ksorder_cen_r_top {
     width: 263px;
-    height: 305px;
+    height: 320px;
     font-size: 14px;
     overflow: auto;
     padding: 9px 0;
