@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>张育发诊所就诊预约平台</title>
+    <link th:replace="commn/head :: head"/>
+</head>
+<body>
+<div th:replace="commn/common :: div"/>
+<div id="register_content">
+    <div class="register_top"><p class="register_top_p">注册新用户</p></div>
+    <div class="rg_nr">
+        <form id="rg_nrfromReg" method="post" action="">
+            <dl class="rg_nr_dl">
+                <dt>用户姓名：</dt>
+                <dd>
+                    <input autocomplete="off" maxlength="20" value="请输入您的真实姓名"
+                           onfocus="inputOnFocus(this, 'rg_nr_input', 'p', '')" onblur="inputOnBlur(this)"
+                           id="rg_nr_name" name="userName" class="rg_nr_input" type='text'/>
+                    <input type="hidden" id="gender" value="1"/>
+                    <input type="hidden" name="isAjax" value="true"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>用户性别：</dt>
+                <dd>
+                    <a href="1" class="rg_nr_boy rg_nr_acolor">男</a>
+                    <a href="2" class="rg_nr_girl">女</a>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>证件类型：</dt>
+                <dd>
+                    <select id="rg_nr_dl_zjlx" class="rg_nr_dl_select" name="idType"
+                            onchange="var index = $(this).children('option:selected').index();this.style.color=(index==0?'#ccc':'black');showBirthday()"
+                            style="color:#ccc">
+                        <option value="-1" selected="selected">请选择证件类型</option>
+                        <option value="1" style="color:black">身份证</option>
+                        <option value="2" style="color:black">军官证</option>
+                        <option value="3" style="color:black">护照</option>
+                        <option value="4" style="color:black">港澳通行证</option>
+                        <option value="5" style="color:black">台胞证</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>证件号码：</dt>
+                <dd>
+                    <input value="请您使用有效证件号码注册" onfocus="inputOnFocus(this, 'rg_nr_input', 'p', '')"
+                           onblur="inputOnBlur(this)" type="text" autocomplete="off" maxlength="20" id="rg_nr_zjhm"
+                           name="isshefn" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>确认号码：</dt>
+                <dd>
+                    <input value="请您再次输入证件号码确认" onfocus="inputOnFocus(this, 'rg_nr_input', 'p', '')"
+                           onblur="inputOnBlur(this)" type="text" autocomplete="off" maxlength="20" id="rg_nr_qrzjhm"
+                           name="isshefnAgain" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl" id="birthday">
+                <dt>出生日期：</dt>
+                <dd>
+                    <select id="sel_year" class="zj_select" style="color:#ccc"
+                            onChange="var index = $(this).children('option:selected').index();this.style.color=(index==0?'#ccc':'black')"/>
+                    <select
+                        id="sel_month" class="zj_select" style="color:#ccc"
+                        onChange="var index = $(this).children('option:selected').index();this.style.color=(index==0?'#ccc':'black')"/>
+                    <select
+                        id="sel_day" class="zj_select" style="color:#ccc"
+                        onChange="var index = $(this).children('option:selected').index();this.style.color=(index==0?'#ccc':'black')"/><br/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>设置密码：</dt>
+                <dd>
+                    <input type="password" name="passWord" autocomplete="off" style="display:none" id="pw"/>
+                    <input onfocus="inputOnFocus(this, 'rg_nr_input', 'p', '');" onblur="inputOnBlur(this);"
+                        type="password" maxlength="20" id="rg_nr_password" name="passWord" class="rg_nr_blank"
+                        autocomplete="off"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>确认密码：</dt>
+                <dd>
+                    <input onfocus="inputOnFocus(this, 'rg_nr_input', 'p', '');" onblur="inputOnBlur(this);"
+                           type="password" autocomplete="off" maxlength="20" id="rg_nr_agin_password" name="passWordAgain"
+                           class="rg_nr_blank"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>现居住地：</dt>
+                <dd>
+                    <select id="s_province" class="zj_select" name="province" style="color:#ccc"
+                            onChange="var index = $(this).children('option:selected').index();this.style.color=(index==0?'#ccc':'black')">
+                        <option value="-1" selected="selected">请选择省份</option>
+                    </select>
+                    <select id="s_city" class="zj_select" name="city" style="color:#ccc"
+                            onChange="var index = $(this).children('option:selected').index();this.style.color=(index==0?'#ccc':'black')">
+                        <option value="-1" selected="selected">请选择城市</option>
+                    </select>
+                    <select id="s_county" class="zj_select" name="county" style="color:#ccc"
+                            onChange="var index = $(this).children('option:selected').index();this.style.color=(index==0?'#ccc':'black')">
+                        <option value="-1" selected="selected">请选择区县</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>手机号码：</dt>
+                <dd>
+                    <input value=""
+                           onfocus="inputOnFocusTip(this ,'rg_nr_blank', 'p', 'rg_nr_dl_tip' ,'1部手机只能绑定1个有效证件')"
+                           onblur="inputOnBlurTip(this ,'', 'p', 'rg_nr_dl_tip')"
+                           onkeyup="this.value=this.value.replace(/\D/g,'')"
+                           onafterpaste="this.value=this.value.replace(/\D/g,'')" type='text' autocomplete="off"
+                           maxlength="14" id="rg_nr_sjhm" class="rg_nr_blank" name="sms"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt></dt>
+                <dd>
+                    <div class="rg_nr_dl_p2">
+                        <input name="Fruit" id="rg_nr_dl_radio" type="checkbox" checked="checked"/>本人同意
+                        <a href="/gl/service.htm" class="rg_nr_dl_yyghfuw" target="_blank">《预约挂号服务协议》</a>
+                    </div>
+                </dd>
+            </dl>
+            <input type="hidden" value="3" name="smsType"/>
+            <input name="submit" type="submit" class="rg_nr_qrzc" value="注册" id="register_button"/>
+        </form>
+    </div>
+</div>
+<div id="footer">
+    <div class="footer_nb">
+        <div class="footer_yb">
+            <ul class="footer_ul">
+                <li><a href="javascript:void(0);">联系我们</a></li>
+                <li><a href="javascript:void(0);">服务协议</a></li>
+                <li><a href="javascript:void(0);">意见反馈</a></li>
+                <li><a>版权所有:辽ICP备05056889号</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script charset="utf-8" src="/static/js/s.js"></script>
+<script type="text/javascript">var logined = false;</script>
+<script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/top.js"></script>
+<script type="text/javascript" src="/static/js/hospitalslist.js"></script>
+<script type="text/javascript" src="/static/js/loginpop.js"></script>
+<script type="text/javascript" src="/static/js/global.js"></script>
+<script type="text/javascript" src="/static/js/userattention.js"></script>
+<script type="text/javascript" src="/static/js/formater.js"></script>
+<script type="text/javascript" src="/static/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/static/js/validate_expand.js"></script>
+<script type="text/javascript" src="/static/js/validate3.js"></script>
+<script type="text/javascript" src="/static/js/gvalidate.js"></script>
+<script type="text/javascript" src="/static/js/topdate.js"></script>
+
+<script type="text/javascript">
+    function goonLogin() {
+        $(".djdl_fpsuts").hide();
+        popCenterWindow("#djdl", "#djdl_close");
+        reloadImage($("#yzmdl"));
+    }
+    function submitModifyPass() {
+        var a = $("#passWordfp"), b = $("#passWordAgainfp");
+        if (!a.valid())return !1;
+        if (!b.valid())return !1;
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: basePath + "help/rpassword.htm",
+            data: {pass: a.val(), isAjax: !0},
+            success: function (a) {
+                a.hasError ? alert(a.msg) : ($("#djdl_fpsu").css({display: "none"}), popCenterWindow(".djdl_fpsuts", "#djdl_fpsuts_close"));
+            }
+        });
+    }
+    function checkForm() {
+        var a = $("#djdl_fp_zjhm").val(), b = $("#djdl_fp_yzm").val(), c = $("#djdl_fp_sfzhm").val(),
+            d = $("#djdl_fp_sjyz").val();
+        if (!$("#djdl_fp_zjhm").valid())return !1;
+        if (!$("#djdl_fp_yzm").valid())return !1;
+        if (!$("#djdl_fp_sfzhm").valid())return !1;
+        if (!$("#djdl_fp_sjyz").valid())return !1;
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: basePath + "help/fpassword.htm",
+            data: {cardNo: a, imageCode: b, phoneNo: c, phoneCode: d, isAjax: !0, channel: "zhmm"},
+            success: function (a) {
+                a.hasError ?
+                    alert(a.msg) : ($("#djdl_fp_close").click(), popCenterWindow("#djdl_fpsu", "#djdl_fpsu_close"));
+            }
+        });
+    }
+    function popDiv() {
+        $("#djdl_close").click();
+        popCenterWindow("#djdl_fpassword", "#djdl_fp_close");
+        reloadImage3($("#djdl_fp_yzmdl"), "zhmm");
+    }
+</script>
+</body>
+</html>

@@ -33,4 +33,9 @@ public class indexCtl {
     public String selCancel(){
         return "selCancel";
     }
+
+    @RequestMapping(value="/register",method= RequestMethod.GET)
+    public String register(){
+        return "register";
+    }
 }

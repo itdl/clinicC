@@ -339,7 +339,7 @@ a {
     float: left;
     margin-left: 0px;
     background: #f7f7f7;
-    width: 285px;
+    width: 100%;
     height: 43px;
     line-height: 42px;
     text-align: center;
@@ -6271,12 +6271,10 @@ a {
 .register_top {
     border-bottom: 2px solid #49a6d8;
     height: 30px;
-    margin-top: 16px;
-    margin-bottom: 10px;
 }
 
 .register_top_p {
-    background: url(../images/nav_li_a.jpg) no-repeat;
+    background: url(../img/nav_li_a.jpg) no-repeat;
     width: 138px;
     height: 30px;
     text-align: center;
@@ -8299,6 +8297,7 @@ a {
     display: inline-block;
     width: 34px;
     height: 47px;
+    border-top: 1px solid #e5e5e5;
 }
 
 .ksorder_cen_l_l ul li {
@@ -8406,6 +8405,7 @@ a {
     display: inline-block;
     width: 34px;
     height: 47px;
+    border-top: 1px solid #e5e5e5;
 }
 
 /*右边预约规则*/
