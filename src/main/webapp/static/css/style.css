@@ -191,6 +191,7 @@ a {
     font-size: 28px;
     width: 438px;
     padding-top: 12px;
+    padding-left: 10px;
     color: #006DB3;
 }
 
@@ -2339,7 +2340,7 @@ a {
     width: 250px;
     height: 166px;
     float: right;
-    padding-top: 14px;
+    padding-top: 10px;
 }
 
 .yygh_box_dt a img {
