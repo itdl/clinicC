@@ -44,7 +44,6 @@ function inputOnFocus(e, elementClass, tipSelector, tipClass) {
 function inputOnBlur(e) {
 	if (e.value == '') {
 		e.value = e.defaultValue;
-		$(e).css("color", "#CCC");
 	}
 }
 if (typeof String.prototype.trim !== 'function') {

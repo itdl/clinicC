@@ -41,50 +41,5 @@
 <script type="text/javascript" src="/static/js/global.js"></script>
 <script type="text/javascript" src="/static/js/formater.js"></script>
 <script type="text/javascript" src="/static/appjs/clinicInfo.js"></script>
-
-<script type="text/javascript">
-    function goonLogin() {
-        $(".djdl_fpsuts").hide();
-        popCenterWindow("#djdl", "#djdl_close");
-        reloadImage($("#yzmdl"));
-    }
-    function submitModifyPass() {
-        var a = $("#passWordfp"), b = $("#passWordAgainfp");
-        if (!a.valid())return !1;
-        if (!b.valid())return !1;
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: basePath + "help/rpassword.htm",
-            data: {pass: a.val(), isAjax: !0},
-            success: function (a) {
-                a.hasError ? alert(a.msg) : ($("#djdl_fpsu").css({display: "none"}), popCenterWindow(".djdl_fpsuts", "#djdl_fpsuts_close"));
-            }
-        });
-    }
-    function checkForm() {
-        var a = $("#djdl_fp_zjhm").val(), b = $("#djdl_fp_yzm").val(), c = $("#djdl_fp_sfzhm").val(),
-            d = $("#djdl_fp_sjyz").val();
-        if (!$("#djdl_fp_zjhm").valid())return !1;
-        if (!$("#djdl_fp_yzm").valid())return !1;
-        if (!$("#djdl_fp_sfzhm").valid())return !1;
-        if (!$("#djdl_fp_sjyz").valid())return !1;
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: basePath + "help/fpassword.htm",
-            data: {cardNo: a, imageCode: b, phoneNo: c, phoneCode: d, isAjax: !0, channel: "zhmm"},
-            success: function (a) {
-                a.hasError ?
-                    alert(a.msg) : ($("#djdl_fp_close").click(), popCenterWindow("#djdl_fpsu", "#djdl_fpsu_close"));
-            }
-        });
-    }
-    function popDiv() {
-        $("#djdl_close").click();
-        popCenterWindow("#djdl_fpassword", "#djdl_fp_close");
-        reloadImage3($("#djdl_fp_yzmdl"), "zhmm");
-    }
-</script>
 </body>
 </html>
