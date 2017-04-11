@@ -6,6 +6,7 @@ import com.client.service.UserSrv;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * 用户操作类
@@ -20,5 +21,10 @@ public class UserSrvImpl implements UserSrv {
     @Override
     public int register(UserMdl user) {
         return userMapper.register(user);
+    }
+
+    @Override
+    public UserMdl selUser(Map<String, Object> param) {
+        return userMapper.selUser(param);
     }
 }

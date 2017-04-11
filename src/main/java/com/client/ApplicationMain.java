@@ -15,8 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SuppressWarnings("deprecation")
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {VelocityAutoConfiguration.class})
-@EnableScheduling
-//@ServletComponentScan
+//@EnableScheduling
 public class ApplicationMain {
     /**
      * 启动函数。

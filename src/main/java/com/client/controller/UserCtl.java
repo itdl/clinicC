@@ -2,10 +2,11 @@ package com.client.controller;
 
 import com.client.model.UserMdl;
 import com.client.service.UserSrv;
+import com.client.util.GlobalVar;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,8 @@ public class UserCtl {
     private UserSrv userSrv;
 
     @RequestMapping(value="/register",method= RequestMethod.POST)
-    public ModelAndView register(HttpServletRequest req, ModelAndView model){
+    @ResponseBody
+    public Map<String,Object> register(HttpServletRequest req){
         UserMdl user = new UserMdl();
         Map<String,Object> param = new HashMap<String,Object>();
         user.setUserName(req.getParameter("userName"));
@@ -38,12 +40,14 @@ public class UserCtl {
             userSrv.register(user);
         }catch(Exception e){
             e.printStackTrace();
-            model.addObject("msg","注册失败!");
-            model.addObject("result","F");
-            return model;
+            param.clear();
+            param.put("msg","注册失败!");
+            param.put("result","F");
+            return param;
         }
-        model.addObject("msg","注册成功!");
-        model.addObject("result","T");
-        return model;
+        req.getSession().setAttribute(GlobalVar.UINFO,user);
+        param.put("msg","注册成功!");
+        param.put("result","T");
+        return param;
     }
 }
