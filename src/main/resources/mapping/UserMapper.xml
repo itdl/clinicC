@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.client.dao.UserMapper">
+    <!--&lt;!&ndash; 指标 &ndash;&gt;-->
+    <!--<select id="getFormula" parameterType="java.util.Map" resultType="com.atme8.efte.model.FormulaMdl">-->
+        <!--SELECT formula_id AS formulaId,formula_name AS formulaName-->
+        <!--FROM efte_t_formula-->
+        <!--where 1=1-->
+        <!--<if test="formulaTypeId !='' ">-->
+            <!--AND formula_type = #{formulaTypeId}-->
+        <!--</if>-->
+        <!--LIMIT #{offset},#{size}-->
+    <!--</select>-->
+    <insert id="register" parameterType="com.client.model.UserMdl">
+        INSERT INTO clinic_client_user (user_name,user_idtype,user_isshefn,user_jzd,
+            user_password,user_sex,user_sms,user_birthday)
+        VALUES (#{userName},#{userIdtype},#{userIsshefn},#{userJzd},
+            #{userPassword},#{userSex},#{userSms},#{userBirthday})
+    </insert>
+    <!--<update id="updateFormulaType" parameterType="java.util.Map">-->
+        <!--UPDATE efte_t_formula_type SET type_name = #{formulaType} WHERE type_id = #{formulaTypeId}-->
+    <!--</update>-->
+    <!--<delete id="deleteFormulaType" parameterType="java.lang.String">-->
+        <!--DELETE FROM efte_t_formula_type WHERE type_id = #{formulaTypeId}-->
+    <!--</delete>-->
+</mapper>
