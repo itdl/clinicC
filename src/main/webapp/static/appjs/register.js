@@ -18,7 +18,7 @@ var Register = (function($){
         param.passWord = $("#passWord").val();
         param.sex = $("#sex").val();
         param.sms = $("#sms").val();
-        param.birthday = $("#birthday").val();
+        param.birthday = $("#datepicker").val();
         $.post("/register",param,function(data){
             if(data.result=='F'){
                 alert(data.msg);
@@ -27,7 +27,15 @@ var Register = (function($){
             window.location.href="/";
         },'json');
     }
+    var init = function(){
+        $("#datepicker").datepicker();
+        $("#datepicker").datepicker("option","dateFormat","yy-mm-dd");
+    }
     return {
-        regSubmit:regSubmit
+        regSubmit:regSubmit,
+        init:init
     }
 })(jQuery)
+$(function(){
+    Register.init();
+})
