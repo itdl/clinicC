@@ -119,7 +119,19 @@ var Global = (function ($) {
             $("#bg").css("display", "none");
         });
     }
-    /**************************新增弹窗居中方法end**************************/
+    //登录
+    var login = function(){
+        var param = {};
+        param.phone = $("#mobileQuickLogin").val();
+        if(!Gvali.notBlankValue(param.phone))
+            alert("登录手机号码不能为空!");
+        param.pwd = $("#pwQuickLogin").val();
+        if(!Gvali.notBlankValue(param.pwd))
+            alert("登录密码不能为空!");
+        $.post("",param,function(data){
+
+        },"json");
+    }
     return {
         init:init,
         closeCenterWindow:closeCenterWindow,

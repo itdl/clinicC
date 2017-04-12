@@ -11740,6 +11740,12 @@ a {
     color: #f00;
     padding-left: 5px;
 }
+/*表单验证*/
+.register_input .tipinfo {
+    float: left;
+    color: #f00;
+    padding-left: 5px;
+}
 
 .tipinfo {
     float: left;

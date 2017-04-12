@@ -27,7 +27,6 @@
                 </ul>
             </div>
             <div id="djdl_tab_id" class="djdl_tab_box">
-
                 <form id="rg_nrfrom1" method="post" action="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm">
                     <div class="ksdl_ul">
                         <div class="vre_err">
@@ -36,26 +35,21 @@
                         <dl class="djdl_ty_dl">
                             <dt>手机号码：</dt>
                             <dd>
-                                <input id="mobileQuickLogin" name="smsQuick" type="text" class="register_input"
-                                       maxlength="18" value="已注册手机号码"
-                                       onfocus="javascript:if(this.value=='已注册手机号码')this.value='',style.color='#000'; $('.hl_tsxx_yc').show()"
-                                       onblur="javascript:if(this.value=='')this.value='已注册手机号码',style.color='#ccc';"
-                                       style="color: #ccc;"/><b class="tipinfo">*</b>
+                                <input id="mobileQuickLogin" type="text" class="register_input"
+                                       maxlength="18" placeholder="请输入注册手机号" style="color: #ccc;"/><b class="tipinfo">*</b>
                             </dd>
                         </dl>
                         <dl class="djdl_ty_dl">
                             <dt>登录密码：</dt>
                             <dd>
-                                <input type="password" name="passWordQuick" autocomplete="off" style="display:none"
-                                       id="pw"/>
-                                <input id="pwQuickLogin" name="passWordQuick" type="passWord" autocomplete="off"
-                                       class="register_input" maxlength="18"/><b class="tipinfo">*</b>
-                                <b class="tipinfo"></b>
+                                <input id="pwQuickLogin" type="passWord" class="register_input"
+                                       maxlength="18" placeholder="请输入登录密码"/>
+                                <b class="tipinfo">*</b>
                             </dd>
                         </dl>
                         <div class="tydiv">
                             <input id="quick_login" name="submit" type="submit" class="ksdl_ul_denglu djdl_nav_qr" value="登录"/>
-                            <a href="http://www.bjguahao.gov.cn/reg.htm" class="ksdl_ul_register" target="_blank">注册新用户</a>
+                            <a href="/register" class="ksdl_ul_register" target="_blank">注册新用户</a>
                         </div>
                         <a href="javascript:void(0);" class="ksdl_ul_wjmm" onclick="Global.popDiv();">忘记密码?</a>
                     </div>
