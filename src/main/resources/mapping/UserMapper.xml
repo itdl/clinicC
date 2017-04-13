@@ -6,8 +6,8 @@
             user_birthday,user_password,user_jzd,user_sms
         FROM clinic_client_user
         where 1=1
-        <if test="password = null">
-            <![CDATA[ id < -1 ]]>
+        <if test="password = null ">
+            AND <![CDATA[ id < -1 ]]>
         </if>
         <if test="password != null ">
             AND user_password = #{password}

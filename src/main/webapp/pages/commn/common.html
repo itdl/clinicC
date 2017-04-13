@@ -27,16 +27,16 @@
                 </ul>
             </div>
             <div id="djdl_tab_id" class="djdl_tab_box">
-                <form id="rg_nrfrom1" method="post" action="http://www.bjguahao.gov.cn/dpt/appoint/105-200040068.htm">
+                <form id="rg_nrfrom1">
                     <div class="ksdl_ul">
                         <div class="vre_err">
-                            <span id="qresultspan"></span>
+                            <span id="qresultspan" class="error"></span>
                         </div>
                         <dl class="djdl_ty_dl">
                             <dt>手机号码：</dt>
                             <dd>
                                 <input id="mobileQuickLogin" type="text" class="register_input"
-                                       maxlength="18" placeholder="请输入注册手机号" style="color: #ccc;"/><b class="tipinfo">*</b>
+                                       maxlength="18" placeholder="请输入注册手机号"/><b class="tipinfo">*</b>
                             </dd>
                         </dl>
                         <dl class="djdl_ty_dl">
@@ -48,7 +48,7 @@
                             </dd>
                         </dl>
                         <div class="tydiv">
-                            <input id="quick_login" name="submit" type="submit" class="ksdl_ul_denglu djdl_nav_qr" value="登录"/>
+                            <input type="button" name="submit" onclick="Global.login();" class="ksdl_ul_denglu djdl_nav_qr" value="登录"/>
                             <a href="/register" class="ksdl_ul_register" target="_blank">注册新用户</a>
                         </div>
                         <a href="javascript:void(0);" class="ksdl_ul_wjmm" onclick="Global.popDiv();">忘记密码?</a>

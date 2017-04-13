@@ -11788,8 +11788,9 @@ a {
 
 .vre_err {
     width: 452px;
-    margin-top: 12px;
+    margin-top: 6px;
     overflow: hidden;
+    display: none;
 }
 
 .ysdl_ul .vre_err {
@@ -11807,9 +11808,10 @@ a {
     width: 228px;
     overflow: hidden;
     line-height: 24px;
-    border: 1px solid #E83828;
+    font-color: #F00;
+    border: none;
     padding-left: 23px;
-    margin-left: 96px;
+    margin-left: 130px;
 }
 
 /*注册页面*/

@@ -56,6 +56,7 @@ var Global = (function ($) {
 
     // 关闭窗口的方法
     var closeWindow = function (closeTag) {
+        $(".vre_err").hide();
         $(closeTag).click(function () {
             $(this).parent().hide("slow");
             $("#bg").css("display", "none");
@@ -111,35 +112,35 @@ var Global = (function ($) {
         $("#bg").css({display: "block", height: $(document).height()});
         closeWindow(bgcol);
     }
-
-    //关闭窗口的方法
-    var closeCenterWindow = function (bgcol) {
-        $(bgcol).click(function () {
-            $(this).parent().hide();
-            $("#bg").css("display", "none");
-        });
-    }
     //登录
     var login = function(){
         var param = {};
-        param.phone = $("#mobileQuickLogin").val();
-        if(!Gvali.notBlankValue(param.phone))
-            alert("登录手机号码不能为空!");
-        param.pwd = $("#pwQuickLogin").val();
-        if(!Gvali.notBlankValue(param.pwd))
-            alert("登录密码不能为空!");
-        $.post("",param,function(data){
-
-        },"json");
+        param.userName = $("#mobileQuickLogin").val();
+        if(!Gvali.notBlankValue(param.userName)){
+            $("#qresultspan").text("登录手机号码不能为空!");
+            $(".vre_err").show();
+            return;
+        }
+        param.password = $("#pwQuickLogin").val();
+        if(!Gvali.notBlankValue(param.password)){
+            $("#qresultspan").text("登录密码不能为空!");
+            $(".vre_err").show();
+            return;
+        }
+        $(".vre_err").hide();
+        $.post("/login",param,function(data){
+            $(".vre_err").show();
+            $("#qresultspan").text(data.msg);
+        },'json');
     }
     return {
         init:init,
-        closeCenterWindow:closeCenterWindow,
         center:center,
         popDiv:popDiv,
         doCloseWindow:doCloseWindow,
         popCenterWindow:popCenterWindow,
-        closeWindow:closeWindow
+        closeWindow:closeWindow,
+        login:login
     }
 })(jQuery)
 $(function(){

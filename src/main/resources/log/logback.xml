@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <configuration>
     <property name="LOG_HOME" value="${LOG_PATH}" />
     <!-- 日志输出到控制台 -->
@@ -43,7 +42,7 @@
         </root>
     </springProfile>
     <!-- Mybatis日志，debug可输出SQL文 -->
-    <logger name="com.mgr.dao" additivity="false" level="debug">
+    <logger name="com.client.dao" additivity="false" level="debug">
         <springProfile name="dev">
             <appender-ref ref="stdout" />
         </springProfile>

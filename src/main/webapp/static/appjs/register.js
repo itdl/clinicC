@@ -28,8 +28,10 @@ var Register = (function($){
         },'json');
     }
     var init = function(){
-        $("#datepicker").datepicker();
-        $("#datepicker").datepicker("option","dateFormat","yy-mm-dd");
+        var dp = $("#datepicker");
+        dp.datepicker();
+        dp.datepicker("option","dateFormat","yy-mm-dd");
+        dp.attr("readonly","readonly");
     }
     return {
         regSubmit:regSubmit,
