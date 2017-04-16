@@ -20,11 +20,11 @@ var Register = (function($){
         param.sms = $("#sms").val();
         param.birthday = $("#datepicker").val();
         $.post("/register",param,function(data){
-            if(data.result=='F'){
-                alert(data.msg);
+            if(data.result=='F')
                 return;
-            }
-            window.location.href="/";
+            else
+                window.setTimeout("window.location.href='/'",2000);
+            $.DialogByZ.Autofade({Content: data.msg});
         },'json');
     }
     var init = function(){
