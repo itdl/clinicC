@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.client.dao.YyMapper">
+    <resultMap id="YyRegisters" type="com.client.model.YyRegisterMdl">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="register_date" property="registerDate"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="rpt_type" property="rptType"/>
+        <result column="work_info" property="workInfo"/>
+        <result column="work_addr" property="workAddr"/>
+        <result column="remarks" property="remarks"/>
+        <result column="rpt_flg" property="rptFlg"/>
+        <result column="stood" property="stood"/>
+        <result column="yy_count" property="registerCount"/>
+    </resultMap>
+    <select id="selYyCount" parameterType="java.util.Map" resultMap="YyRegisters">
+        SELECT register_time,register_date,COUNT(register_date) AS yy_count
+        FROM(
+            SELECT register_date,register_time
+            FROM clinic_client_register
+            WHERE 1=1
+            ORDER BY register_time,register_date
+        ) a
+        WHERE 1=1
+        <if test="registerDate != null">
+            AND register_date=#{registerDate}
+        </if>
+        <if test="registerTime != null">
+            AND register_time=#{registerTime}
+        </if>
+        GROUP BY  register_time,register_date
+        ORDER BY register_date,register_time
+    </select>
+</mapper>

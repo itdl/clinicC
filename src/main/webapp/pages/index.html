@@ -25,70 +25,26 @@
                 <div class="ksorder_cen_l_t_c" style="width: 659px;">
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody>
-                        <tr>
-                            <th scope="col">星期四<p>2017-03-30</p></th>
-                            <th scope="col">星期五<p>2017-03-31</p></th>
-                            <th scope="col">星期六<p>2017-04-01</p></th>
-                            <th scope="col">星期日<p>2017-04-02</p></th>
-                            <th scope="col">星期一<p>2017-04-03</p></th>
-                            <th scope="col">星期二<p>2017-04-04</p></th>
-                            <th scope="col">星期三<p>2017-04-05</p></th>
-                        </tr>
-                        <tr>
-                            <td class="ksorder_ym">
-                                约满<input type="hidden" name="col_0" value="0_1_2017-03-30"/>
-                            </td>
-                            <td class="ksorder_ym">
-                                约满<input type="hidden" name="col_1" value="1_1_2017-03-31"/>
-                            </td>
-                            <td class="ksorder_ym">
-                                约满<input type="hidden" name="col_2" value="2_1_2017-04-01"/>
-                            </td>
-                            <td>
-                                &nbsp;<input type="hidden" name="col_3" value="3_1_2017-04-02"/>
-                            </td>
-                            <td>
-                                &nbsp;<input type="hidden" name="col_4" value="4_1_2017-04-03"/>
-                            </td>
-                            <td>
-                                &nbsp;<input type="hidden" name="col_5" value="5_1_2017-04-04"/>
-                            </td>
-                            <td>
-                                &nbsp;<input type="hidden" name="col_6" value="6_1_2017-04-05"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="ksorder_ym">约满<input type="hidden" name="col_0" value="0_2_2017-03-30"/>
-                            </td>
-                            <td class="ksorder_ym">约满<input type="hidden" name="col_1" value="1_2_2017-03-31"/>
-                            </td>
-                            <td class="ksorder_ym">约满<input type="hidden" name="col_2" value="2_2_2017-04-01"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_3" value="3_2_2017-04-02"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_4" value="4_2_2017-04-03"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_5" value="5_2_2017-04-04"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_6" value="6_2_2017-04-05"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;<input type="hidden" name="col_0" value="0_4_2017-03-30"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_1" value="1_4_2017-03-31"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_2" value="2_4_2017-04-01"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_3" value="3_4_2017-04-02"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_4" value="4_4_2017-04-03"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_5" value="5_4_2017-04-04"/>
-                            </td>
-                            <td>&nbsp;<input type="hidden" name="col_6" value="6_4_2017-04-05"/>
-                            </td>
-                        </tr>
+                            <tr>
+                                <th scope="col" th:each="date : ${dates}">
+                                    <p th:text="${date.week}"/><p th:text="${date.date}"/>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="ksorder_ym" th:each="date : ${dates}">
+                                    <a onclick="Index.yyClick(this);" th:id="${date.vals.sw}">预约</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ksorder_ym" th:each="date : ${dates}">
+                                    <a onclick="Index.yyClick(this);" th:id="${date.vals.zw}">预约</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ksorder_ym" th:each="date : ${dates}">
+                                    <a onclick="Index.yyClick(this);" th:id="${date.vals.xw}">预约</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -130,6 +86,7 @@
     </div>
 </div>
 <div th:replace="commn/footer :: footer"/>
+<script th:inline="javascript">var _id = [[${id}]];var _msg= [[${msg}]];</script>
 <script type="text/javascript" src="/static/appjs/index.js"></script>
 </body>
 </html>

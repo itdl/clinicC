@@ -6272,6 +6272,7 @@ a {
 .register_top {
     border-bottom: 2px solid #49a6d8;
     height: 30px;
+    width: 1000px;
 }
 
 .register_top_p {
@@ -6356,7 +6357,9 @@ a {
     margin: 0 auto;
     overflow: hidden;
     padding-top: 20px;
+    padding-bottom: 40px;
     padding-left: 146px;
+    background-color: #F0F8FF;
 }
 
 .rg_nr_dl {
@@ -8303,7 +8306,7 @@ a {
 
 .ksorder_cen_l_l ul li {
     width: 34px;
-    height: 90px;
+    height: 99px;
     line-height: 90px;
     text-align: center;
 }

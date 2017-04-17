@@ -1,5 +1,6 @@
 package com.client.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,8 @@ public class ParamCfg {
     private int keepalivetime;
     private int maxsize;
     private int queuecapacity;
+    @Value("${init.register.times}")
+    private int registerTimes;
 
     public int getCoresize() {
         return coresize;
@@ -39,5 +42,8 @@ public class ParamCfg {
     }
     public void setQueueCapacity(int queuecapacity) {
         this.queuecapacity = queuecapacity;
+    }
+    public int getRegisterTimes() {
+        return registerTimes;
     }
 }
