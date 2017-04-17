@@ -10,19 +10,17 @@
 
 <div class="yuyuexuzhi">
     <div class="yuyuexuzhi_title">
-        <p>预约</p>
+        <p>门诊预约</p>
     </div>
     <div class="rg_nr">
         <form id="rg_nrfromReg">
             <dl class="rg_nr_dl">
                 <dt>预约类型：</dt>
                 <dd>
-                <dd>
                     <select class="rg_nr_dl_select" id="rptType" style="color:#ccc">
                         <option value="1" selected="selected">初诊</option>
                         <option value="2" style="color:black">复诊</option>
                     </select>
-                </dd>
                 </dd>
             </dl>
             <dl class="rg_nr_dl">
@@ -43,11 +41,12 @@
                     <input placeholder="请简述您的病情" type="text" id="remarks" class="rg_nr_input"/>
                 </dd>
             </dl>
-            <input type="button" class="rg_nr_qrzc" value="预约" onclick="Register.regSubmit();"/>
+            <input type="button" class="rg_nr_qrzc_left" value="预约" onclick="Register.regSubmit();"/>
+            <input type="button" class="rg_nr_qrzc_right" value="返回" onclick="history.back();"/>
         </form>
     </div>
 </div>
 <div th:replace="commn/footer :: footer"/>
-<script type="text/javascript" src="/static/appjs/noticeInfo.js"></script>
+<script type="text/javascript" src="/static/appjs/yyRegister.js"></script>
 </body>
 </html>

@@ -170,11 +170,12 @@ a {
 
 /*头部*/
 #top {
-    width: 1000px;
     height: 92px;
     padding-top: 12px;
+    padding-left: 260px;
     margin: 0 auto;
     position: relative;
+    border-bottom: 2px solid #60bff2;
 }
 
 .top_left {
@@ -2684,9 +2685,9 @@ a {
     margin: 0 auto;
     margin-top: 20px;
     position: relative;
-    margin-bottom: 40px;
     line-height: 27px;
     min-height: 340px;
+    background-color: #f4f6fa;
 }
 
 .yiyuanjieshao_title {
@@ -2795,7 +2796,8 @@ a {
     height: auto;
     margin-top: 20px;
     position: relative;
-    margin-bottom: 40px;
+    background-color: #f4f6fa;
+    padding-bottom: 30px;
 }
 
 .yuyuexuzhi_title {
@@ -2839,6 +2841,7 @@ a {
     margin: 0 auto;
     margin-top: 20px;
     position: relative;
+    background-color: #f4f6fa;
 }
 
 .tingzhengxingxi_title {
@@ -2882,7 +2885,7 @@ a {
 
 .tingzhengxingxi_context tr td {
     text-align: center;
-    background: #fff;
+    background: #f4f6fa;
     height: 29px;
     font-size: 13px;
     border: 1px solid #dcdddd;
@@ -6270,7 +6273,6 @@ a {
 }
 
 .register_top {
-    border-bottom: 2px solid #49a6d8;
     height: 30px;
     width: 1000px;
 }
@@ -6281,7 +6283,7 @@ a {
     height: 30px;
     text-align: center;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 15px;
     color: #fff;
 }
 
@@ -6353,13 +6355,13 @@ a {
 
 /*注册第一步*/
 .rg_nr {
-    width: 850px;
+    width: 854px;
     margin: 0 auto;
     overflow: hidden;
     padding-top: 20px;
     padding-bottom: 40px;
     padding-left: 146px;
-    background-color: #F0F8FF;
+    background-color: #f4f6fa;
 }
 
 .rg_nr_dl {
@@ -6524,9 +6526,9 @@ a {
 .rg_nr_qrzc {
     display: inline-block;
     text-align: center;
-    height: 43px;
+    height: 40px;
     line-height: 43px;
-    width: 157px;
+    width: 100px;
     background: #F7B52C;
     color: #fff;
     margin-left: 241px;
@@ -6534,7 +6536,29 @@ a {
     cursor: pointer;
     font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "宋体", Arial, Verdana, sans-serif;
 }
-
+.rg_nr_qrzc_left {
+    display: inline-block;
+    text-align: center;
+    height: 35px;
+    width: 100px;
+    background: #F7B52C;
+    color: #fff;
+    margin-left: 241px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "宋体", Arial, Verdana, sans-serif;
+}
+.rg_nr_qrzc_right {
+    display: inline-block;
+    text-align: center;
+    height: 35px;
+    width: 100px;
+    background: #F7B52C;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "宋体", Arial, Verdana, sans-serif;
+}
 .rg_nr_dl_p2 {
     float: left;
     font-size: 14px;
@@ -8001,7 +8025,6 @@ a {
 }
 
 .ksorder_div {
-    border-bottom: 2px solid #60bff2;
     height: 30px;
 }
 
@@ -8218,7 +8241,6 @@ a {
     overflow: hidden;
     margin: 0 auto;
     margin-top: 0px;
-    margin-bottom: 39px;
 }
 
 .ksorder_time_title {
