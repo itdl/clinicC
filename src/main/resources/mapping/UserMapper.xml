@@ -13,7 +13,7 @@
             AND user_password = #{password}
         </if>
         <if test="userName != null ">
-            AND user_name = #{userName}
+            AND user_sms = #{userName}
         </if>
     </select>
     <insert id="register" parameterType="com.client.model.UserMdl">
