@@ -64,4 +64,15 @@ public class YyCtl {
         model.setViewName("yyRegister");
         return model;
     }
+
+    /**
+     * 预约信息提交
+     * @param req
+     * @return
+     */
+    @RequestMapping(value="/yyRegSubmit",method = RequestMethod.POST)
+    public Map<String,Object> submitYy(HttpServletRequest req){
+
+        return null;
+    }
 }
