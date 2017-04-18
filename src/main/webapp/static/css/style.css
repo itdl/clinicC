@@ -172,16 +172,15 @@ a {
 #top {
     height: 92px;
     padding-top: 12px;
-    padding-left: 260px;
     margin: 0 auto;
     position: relative;
     border-bottom: 2px solid #60bff2;
 }
 
 .top_left {
-    width: 593px;
+    width: 1000px;
     height: 75px;
-    float: left;
+    margin:0 auto;
 }
 
 .top_left img, .top_left .top_h2 {
@@ -190,7 +189,6 @@ a {
 
 .top_h2 {
     font-size: 28px;
-    width: 438px;
     padding-top: 12px;
     padding-left: 10px;
     color: #006DB3;
