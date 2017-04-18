@@ -20,4 +20,14 @@ public class YySrvImpl implements YySrv {
     public List<YyRegisterMdl> selYyCount(Map<String, Object> param) {
         return yyMapper.selYyCount(param);
     }
+
+    @Override
+    public int addYy(YyRegisterMdl yy) {
+        return yyMapper.addYy(yy);
+    }
+
+    @Override
+    public YyRegisterMdl selYyHisty(Map<String, Object> param) {
+        return yyMapper.selYyHisty(param);
+    }
 }

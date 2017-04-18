@@ -7,6 +7,8 @@ package com.client.util;
  */
 public interface GlobalVar {
     String UINFO = "USERINFO";
-    String[] LGNURL = {"/",""};
-    String URLS ="/**";
+    String[] URLS = {"/yy","/selyy"};
+    String sw = "上午8:00~12:00";
+    String xw = "下午13:00~18:00";
+    String ws = "晚上19:00~20:00";
 }

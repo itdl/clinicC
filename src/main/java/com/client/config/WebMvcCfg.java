@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @author
  * @time 2017/3/9.
  */
-//@Configuration
+@Configuration
 public class WebMvcCfg extends WebMvcConfigurerAdapter {
 
     @Resource
@@ -22,6 +22,6 @@ public class WebMvcCfg extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(sessionIntercepter).addPathPatterns(GlobalVar.URLS).excludePathPatterns(GlobalVar.LGNURL);
+        registry.addInterceptor(sessionIntercepter).addPathPatterns(GlobalVar.URLS);
     }
 }

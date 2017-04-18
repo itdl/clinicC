@@ -32,3 +32,13 @@ input::-moz-placeholder { /* Mozilla Firefox 19+*/
 input:-ms-input-placeholder { /* Internet Explorer 10+*/
     color: #CCC;
 }
+.swal2-modal hr{
+    height: 3px !important;
+}
+.swal2-modal button.styled{
+    font-size: 13px !important;
+    padding: 2px 15px !important;
+}
+.swal2-content{
+    font-size: 15px !important;
+}

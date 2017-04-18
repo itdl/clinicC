@@ -23,11 +23,33 @@ public class UserCtl {
     @Resource
     private UserSrv userSrv;
 
-    @RequestMapping(value="/register",method= RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> register(HttpServletRequest req){
+    public Map<String, Object> register(HttpServletRequest req) {
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("userSms", req.getParameter("sms"));
+        param.put("userName", req.getParameter("userName"));
+        try {
+            UserMdl uCheck = userSrv.selUser(param);
+            if (uCheck != null) {
+                if(param.get("userName").equals(uCheck.getUserName())){
+                    param.put("msg", "用户名称已存在!");
+                    param.put("result", "F");
+                    return param;
+                }
+                if(param.get("userName").equals(uCheck.getUserSms())){
+                    param.put("msg", "手机号已存在!");
+                    param.put("result", "F");
+                    return param;
+                }
+            }
+        } catch (Exception e) {
+            param.clear();
+            param.put("msg", "网络异常!");
+            param.put("result", "F");
+            return param;
+        }
         UserMdl user = new UserMdl();
-        Map<String,Object> param = new HashMap<String,Object>();
         user.setUserName(req.getParameter("userName"));
         user.setUserIdtype(Integer.parseInt(req.getParameter("idType")));
         user.setUserIsshefn(req.getParameter("isshefn"));
@@ -36,18 +58,18 @@ public class UserCtl {
         user.setUserSex(Integer.parseInt(req.getParameter("sex")));
         user.setUserSms(req.getParameter("sms"));
         user.setUserBirthday(req.getParameter("birthday"));
-        try{
+        try {
             userSrv.register(user);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             param.clear();
-            param.put("msg","注册失败!");
-            param.put("result","F");
+            param.put("msg", "网络异常!");
+            param.put("result", "F");
             return param;
         }
-        req.getSession().setAttribute(GlobalVar.UINFO,user);
-        param.put("msg","注册成功!");
-        param.put("result","T");
+        req.getSession().setAttribute(GlobalVar.UINFO, user);
+        param.put("msg", "注册成功!");
+        param.put("result", "T");
         return param;
     }
 }

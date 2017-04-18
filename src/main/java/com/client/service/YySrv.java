@@ -10,4 +10,6 @@ import java.util.Map;
  */
 public interface YySrv {
     List<YyRegisterMdl> selYyCount(Map<String,Object> param);
+    int addYy(YyRegisterMdl yy);
+    YyRegisterMdl selYyHisty(Map<String,Object> param);
 }

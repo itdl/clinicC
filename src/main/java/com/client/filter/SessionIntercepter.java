@@ -21,7 +21,10 @@ public class SessionIntercepter implements HandlerInterceptor {
         if (loginUser != null) {
             return true;
         }
-        res.sendRedirect("/");
+        if(req.getHeader("X-Requested-With").equals("XMLHttpRequest")){
+            res.setContentType("text/html;charset=UTF-8");
+            res.getWriter().write("{\"result\":\"F\",\"msg\":\"您未登录!\"}");
+        }
         return false;
     }
 

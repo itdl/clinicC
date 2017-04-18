@@ -10,4 +10,5 @@ import java.util.Map;
 public interface UserMapper {
     int register(UserMdl user);
     UserMdl selUser(Map<String,Object> param);
+    UserMdl loginCheck(Map<String,Object> param);
 }

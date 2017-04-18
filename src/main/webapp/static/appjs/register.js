@@ -2,12 +2,12 @@ var Register = (function($){
     var regSubmit = function(){
         if($("#passWordAgain").val()!=$("#passWord").val()){
             $("#passWordAgain,#passWord").val("");
-            alert("两次密码输入不相同请重新输入!");
+            Global.msg("两次密码输入不相同请重新输入!",3000);
             return ;
         }
         if($("#isshefn").val()!=$("#isshefnAgain").val()){
             $("#isshefn,#isshefnAgain").val("");
-            alert("证件号码输入不相同请重新输入!");
+            Global.msg("证件号码输入不相同请重新输入!",3000);
             return ;
         }
         var param = {};
@@ -20,11 +20,9 @@ var Register = (function($){
         param.sms = $("#sms").val();
         param.birthday = $("#datepicker").val();
         $.post("/register",param,function(data){
+            Global.msg(data.msg,3000);
             if(data.result=='F')
-                return;
-            else
-                window.setTimeout("window.location.href='/'",2000);
-            $.DialogByZ.Autofade({Content: data.msg});
+                window.setTimeout("window.location.href='/'",3000);
         },'json');
     }
     var init = function(){

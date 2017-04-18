@@ -35,8 +35,9 @@ public class LoginCtl {
     public Map<String,Object> login(HttpServletRequest req){
         Map<String,Object> param = new HashMap<String,Object>();
         param.put("password",req.getParameter("password"));
+        param.put("userSms",req.getParameter("userSms"));
         param.put("userName",req.getParameter("userName"));
-        UserMdl user = userSrv.selUser(param);
+        UserMdl user = userSrv.loginCheck(param);
         param.clear();
         if(user != null){
             req.getSession().setAttribute(GlobalVar.UINFO,user);

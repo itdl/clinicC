@@ -2,18 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.client.dao.UserMapper">
     <select id="selUser" parameterType="java.util.Map" resultType="com.client.model.UserMdl">
-        SELECT user_id,user_name,user_sex,user_idtype,
-            user_birthday,user_password,user_jzd,user_sms
+        SELECT user_name,user_sms
         FROM clinic_client_user
         where 1=1
-        <if test="password = null ">
-            AND <![CDATA[ id < -1 ]]>
-        </if>
-        <if test="password != null ">
-            AND user_password = #{password}
-        </if>
         <if test="userName != null ">
-            AND user_sms = #{userName}
+            AND user_name = #{userName}
+        </if>
+        <if test="userSms != null ">
+            AND user_sms = #{userSms}
+        </if>
+    </select>
+    <select id="loginCheck" parameterType="java.util.Map" resultType="com.client.model.UserMdl">
+        SELECT user_id,user_name,user_sex,user_idtype,
+        user_birthday,user_password,user_jzd,user_sms
+        FROM clinic_client_user
+        where 1=1
+        AND user_password = #{password}
+        <if test="userName != null ">
+            AND user_name = #{userName}
+        </if>
+        <if test="userSms != null ">
+            AND user_sms = #{userSms}
         </if>
     </select>
     <insert id="register" parameterType="com.client.model.UserMdl">

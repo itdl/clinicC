@@ -71,7 +71,6 @@ var Global = (function ($) {
     var popDiv = function () {
         $("#djdl_close").click();
         popCenterWindow('#djdl_fpassword', '#djdl_fp_close');
-        alert("wrong");
         reloadImage3($('#djdl_fp_yzmdl'), 'zhmm');
     }
 
@@ -115,8 +114,8 @@ var Global = (function ($) {
     //登录
     var login = function(){
         var param = {};
-        param.userName = $("#mobileQuickLogin").val();
-        if(!Gvali.notBlankValue(param.userName)){
+        param.userSms = $("#mobileQuickLogin").val();
+        if(!Gvali.notBlankValue(param.userSms)){
             $("#qresultspan").text("登录手机号码不能为空!");
             $(".vre_err").show();
             return;
@@ -129,9 +128,18 @@ var Global = (function ($) {
         }
         $(".vre_err").hide();
         $.post("/login",param,function(data){
+            if(data.result=='T'){
+                $("#djdl_close").click();
+            }
             $(".vre_err").show();
             $("#qresultspan").text(data.msg);
         },'json');
+    }
+    var msg = function(msg,time){
+        swal({
+            text: msg,
+            timer: time
+        });
     }
     return {
         init:init,
@@ -140,7 +148,8 @@ var Global = (function ($) {
         doCloseWindow:doCloseWindow,
         popCenterWindow:popCenterWindow,
         closeWindow:closeWindow,
-        login:login
+        login:login,
+        msg:msg
     }
 })(jQuery)
 $(function(){

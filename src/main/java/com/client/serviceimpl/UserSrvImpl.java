@@ -27,4 +27,9 @@ public class UserSrvImpl implements UserSrv {
     public UserMdl selUser(Map<String, Object> param) {
         return userMapper.selUser(param);
     }
+
+    @Override
+    public UserMdl loginCheck(Map<String, Object> param) {
+        return userMapper.loginCheck(param);
+    }
 }
