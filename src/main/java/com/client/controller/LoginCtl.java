@@ -35,14 +35,16 @@ public class LoginCtl {
     public Map<String,Object> login(HttpServletRequest req){
         Map<String,Object> param = new HashMap<String,Object>();
         param.put("password",req.getParameter("password"));
-        param.put("userSms",req.getParameter("userSms"));
-        param.put("userName",req.getParameter("userName"));
+        if(req.getParameter("userSms")!=null)
+            param.put("userSms",req.getParameter("userSms").trim());
+        if(req.getParameter("userName")!=null)
+            param.put("userName",req.getParameter("userName").trim());
         UserMdl user = userSrv.loginCheck(param);
         param.clear();
         if(user != null){
             req.getSession().setAttribute(GlobalVar.UINFO,user);
             param.put("result","T");
-            param.put("msg","欢迎登陆");
+            param.put("msg","你好-"+user.getUserName()+",欢迎登录就诊平台!");
             return param;
         }
         param.put("result","F");

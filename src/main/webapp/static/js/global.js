@@ -130,6 +130,7 @@ var Global = (function ($) {
         $.post("/login",param,function(data){
             if(data.result=='T'){
                 $("#djdl_close").click();
+                Global.msg(data.msg,3000);
             }
             $(".vre_err").show();
             $("#qresultspan").text(data.msg);

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.client.dao.UserMapper">
-    <select id="selUser" parameterType="java.util.Map" resultType="com.client.model.UserMdl">
+    <resultMap id="users" type="com.client.model.UserMdl">
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_sex" property="userSex"/>
+        <result column="user_idtype" property="userIdtype"/>
+        <result column="user_isshefn" property="userIsshefn"/>
+        <result column="user_birthday" property="userBirthday"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_jzd" property="userJzd"/>
+        <result column="user_sms" property="userSms"/>
+    </resultMap>
+    <select id="selUser" parameterType="java.util.Map" resultMap="users">
         SELECT user_name,user_sms
         FROM clinic_client_user
         where 1=1
@@ -12,7 +23,7 @@
             AND user_sms = #{userSms}
         </if>
     </select>
-    <select id="loginCheck" parameterType="java.util.Map" resultType="com.client.model.UserMdl">
+    <select id="loginCheck" parameterType="java.util.Map" resultMap="users">
         SELECT user_id,user_name,user_sex,user_idtype,
         user_birthday,user_password,user_jzd,user_sms
         FROM clinic_client_user
