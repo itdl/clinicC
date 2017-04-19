@@ -42,3 +42,8 @@ input:-ms-input-placeholder { /* Internet Explorer 10+*/
 .swal2-content{
     font-size: 15px !important;
 }
+.swal2-modal .swal2-close{
+    font-size:6px !important;
+    line-height: 17px !important;
+    color: #808080 !important;
+}

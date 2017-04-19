@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +44,7 @@ public class LoginCtl {
             req.getSession().setAttribute(GlobalVar.UINFO,user);
             req.getSession().setAttribute("uname",user.getUserName());
             param.put("result","T");
+            param.put("uname",user.getUserName());
             param.put("msg","你好-"+user.getUserName()+",欢迎登录就诊平台!");
             return param;
         }
@@ -56,16 +56,10 @@ public class LoginCtl {
     /**
      * 退出登录
      * @param request
-     * @param res
      */
     @RequestMapping(value = "/exit",method = RequestMethod.GET)
     public void exitAcount(HttpServletRequest request, HttpServletResponse res) {
         request.getSession().removeAttribute(GlobalVar.UINFO);
         request.getSession().invalidate();
-        try {
-            res.sendRedirect("/");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

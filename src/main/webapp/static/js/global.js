@@ -105,11 +105,22 @@ var Global = (function ($) {
 
             objLeft = (screenWidth - $(obj).width()) / 2;
             objTop = (screenHeight - $(obj).height()) / 2 + scrolltop;
-
-
         });
         $("#bg").css({display: "block", height: $(document).height()});
         closeWindow(bgcol);
+    }
+    /**
+     * 消息提示
+     * @param msg
+     * @param time
+     */
+    var msg = function(msg,time,isConfirm,close){
+        swal({
+            text: msg,
+            timer: time==null?2000:time,
+            showConfirmButton: isConfirm==null?false:true,
+            showCloseButton: close==null?true:close
+        });
     }
     /**
      * 登录
@@ -132,23 +143,26 @@ var Global = (function ($) {
         $.post("/login",param,function(data){
             if(data.result=='T'){
                 $("#djdl_close").click();
-                Global.msg(data.msg,3000);
-                window.setTimeout("window.location.reload();",3000);
+                $("#isLogin").attr("style","margin-left: 222px;");
+                var topmsg = '欢迎-<a href="javascript:;" target="_blank">'+data.uname+'</a> -来到【张育发诊所就诊预约】平台！'+
+                    '<a href="javascript:;" target="_blank" class="db_denglu" onclick="Global.exit();">退出登录</a>';
+                $("#isLogin").html(topmsg);
+                Global.msg(data.msg,1500);
+                return;
             }
             $(".vre_err").show();
             $("#qresultspan").text(data.msg);
         },'json');
     }
-    /**
-     * 消息提示
-     * @param msg
-     * @param time
-     */
-    var msg = function(msg,time){
-        swal({
-            text: msg,
-            timer: time
-        });
+    //退出
+    var exit = function(){
+        $.ajax({
+            method:'get',
+            url:'/exit',
+            complete:function(data){
+                location.reload();
+            }
+        })
     }
     return {
         init:init,
@@ -158,6 +172,7 @@ var Global = (function ($) {
         popCenterWindow:popCenterWindow,
         closeWindow:closeWindow,
         login:login,
+        exit:exit,
         msg:msg
     }
 })(jQuery)

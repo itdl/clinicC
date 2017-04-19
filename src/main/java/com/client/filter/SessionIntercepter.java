@@ -23,7 +23,9 @@ public class SessionIntercepter implements HandlerInterceptor {
         }
         if(req.getHeader("X-Requested-With").equals("XMLHttpRequest")){
             res.setContentType("text/html;charset=UTF-8");
-            res.getWriter().write("{\"result\":\"F\",\"msg\":\"您未登录!\"}");
+            res.getWriter().write("{\"result\":\"F\",\"msg\":\"请登录!\"}");
+        }else{
+            res.sendRedirect("/");
         }
         return false;
     }

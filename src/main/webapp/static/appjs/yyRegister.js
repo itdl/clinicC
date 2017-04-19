@@ -12,30 +12,28 @@ var YyRegister = (function($){
         var param = {};
         param.rptType = $("#rptType").val();
         if(!Gvali.notBlankValue(param.rptType)){
-            Global.msg("请输入预约类型",3000);
+            Global.msg("请输入预约类型");
             return;
         }
         param.workInfo = $("#workInfo").val();
         if(!Gvali.notBlankValue(param.workInfo)){
-            Global.msg("请输入职业名称",3000);
+            Global.msg("请输入职业名称");
             return;
         }
         param.workAddr = $("#workAddr").val();
         if(!Gvali.notBlankValue(param.workAddr)){
-            Global.msg("请输入工作地点",3000);
+            Global.msg("请输入工作地点");
             return;
         }
         param.remarks = $("#remarks").val();
         if(!Gvali.notBlankValue(param.remarks)){
-            Global.msg("请输入病情简述",3000);
+            Global.msg("请输入病情简述");
             return;
         }
         param.date = _date;
         param.time = _time;
         $.post("/yy",param,function(data){
-            Global.msg(data.msg,3000);
-            if(data.result=='T')
-                window.location.href='/';
+            Global.msg(data.msg);
         },'json');
     }
     return {

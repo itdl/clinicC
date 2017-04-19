@@ -12,7 +12,7 @@
             </p>
             <p class="dbnav_context_right" style="margin-left: 222px;" id="show" th:if="${session.uname != null}">
                 欢迎-<a href="javascript:;" target="_blank" th:text="${session.uname}"/> -来到【张育发诊所就诊预约】平台!
-                <a href="/exit" target="_blank" class="db_denglu">退出登录</a>
+                <a href="javascript:;" target="_blank" class="db_denglu" onclick="Global.exit();">退出登录</a>
             </p>
         </div>
     </div>

@@ -12,11 +12,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -32,84 +36,94 @@ public class YyCtl {
     @Resource
     private ParamCfg paramCfg;
 
-    @RequestMapping(value="/yyCheck",method= RequestMethod.POST)
-    public String yyCheck(@RequestParam String dt,
-                          HttpServletRequest req,RedirectAttributes attr){
-        if(dt ==null){
-            attr.addFlashAttribute("id",dt);
-            attr.addFlashAttribute("msg","您未选择预约时间!");
-            return "redirect:/";
+    @RequestMapping(value = "/yyCheck", method = RequestMethod.POST)
+    public void yyCheck(@RequestParam String dt, HttpServletResponse res,
+                        HttpServletRequest req, RedirectAttributes attr) {
+        boolean isAjax = req.getHeader("X-Requested-With").equals("XMLHttpRequest");
+        if (!isAjax)
+            return;
+        res.setContentType("text/html;charset=UTF-8");
+        try {
+            PrintWriter pw = res.getWriter();
+            if (dt == null){
+                pw.write("{\"result\":\"F\",\"id\":\""+dt+"\",\"msg\":\"您未选择预约时间!\"}");
+                return;
+            }
+            String[] condition = StringUtils.split(dt, "_");
+            Map<String, Object> param = new HashMap<String, Object>();
+            param.put("registerDate", condition[0]);
+            param.put("registerTime", condition[1]);
+            List<YyRegisterMdl> yy = yySrv.selYyCount(param);
+            if (yy.get(0).getRegisterCount() > paramCfg.getRegisterTimes()) {
+                pw.write("{\"result\":\"F\",\"id\":\""+dt+"\",\"msg\":\"已满约!\"}");
+                return;
+            }
+            pw.write("{\"result\":\"T\",\"id\":\""+dt+"\"}");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        String[] condition = StringUtils.split(dt,"_");
-        Map<String,Object> param = new HashMap<String,Object>();
-        param.put("registerDate",condition[0]);
-        param.put("registerTime",condition[1]);
-        List<YyRegisterMdl> yy = yySrv.selYyCount(param);
-        if(yy.get(0).getRegisterCount() > paramCfg.getRegisterTimes()){
-            attr.addFlashAttribute("id",dt);
-            attr.addFlashAttribute("msg","已满约!");
-            return "redirect:/";
-        }
-        req.getSession().setAttribute("id",dt);
-        return "redirect:/yyRegister";
     }
 
     /**
      * 跳转至预订页面
+     *
      * @param req
      * @param model
      * @return
      */
-    @RequestMapping(value="/yyRegister")
-    public ModelAndView goYy(HttpServletRequest req,ModelAndView model){
-        String id = String.valueOf(req.getSession().getAttribute("id"));
-        String[] param = StringUtils.split(id,"_");
-        model.addObject("_date",param[0]);
-        model.addObject("_time",param[1]);
+    @RequestMapping(value = "/yyRegister",method = RequestMethod.POST)
+    public ModelAndView goYy(@RequestParam String id, ModelAndView model) {
+        String[] param = StringUtils.split(id, "_");
+        model.addObject("_date", param[0]);
+        model.addObject("_time", param[1]);
+        model.addObject("_timeZh", ComnUtil.GetTimeZh(param[1]));
         model.setViewName("yyRegister");
         return model;
     }
 
     /**
      * 预约信息提交
+     *
      * @param req
      * @return
      */
-    @RequestMapping(value="/yy",method = RequestMethod.POST)
-    public Map<String,Object> submitYy(HttpServletRequest req){
-        UserMdl user = (UserMdl)req.getSession().getAttribute(GlobalVar.UINFO);
-        Map<String,Object> param = new HashMap<String,Object>();
-        param.put("registerDate",req.getParameter("date"));
-        param.put("registerTime",req.getParameter("time"));
-        param.put("userId",user.getUserId());
-        String today = StringUtils.substring( DateUtil.FormatDate(new Date()),0,10 );
-        if( req.getParameter("date").compareTo(today)<0 ){
+    @RequestMapping(value = "/yy", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> submitYy(HttpServletRequest req) {
+        UserMdl user = (UserMdl) req.getSession().getAttribute(GlobalVar.UINFO);
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("registerDate", req.getParameter("date"));
+        param.put("registerTime", req.getParameter("time"));
+        param.put("userId", user.getUserId());
+        String today = StringUtils.substring(DateUtil.FormatDate(new Date()), 0, 10);
+        if (req.getParameter("date").compareTo(today) < 0) {
             param.clear();
-            param.put("result","F");
-            param.put("msg","请在就诊前一天预约");
+            param.put("result", "F");
+            param.put("msg", "请在就诊前一天预约");
             return param;
         }
-        try{
+        /** 就诊预约前检查*/
+        try {
             YyRegisterMdl yyCheck = yySrv.selYyHisty(param);
-            if(yyCheck!=null){
+            if (yyCheck != null) {
                 param.clear();
-                param.put("result","F");
+                param.put("result", "F");
                 StringBuilder msg = new StringBuilder()
                         .append("您已预约")
                         .append(req.getParameter("date"))
                         .append("日")
                         .append(ComnUtil.GetTimeZh(req.getParameter("time")))
                         .append(",请及时就诊");
-                param.put("msg",msg.toString());
+                param.put("msg", msg.toString());
                 return param;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             param.clear();
-            param.put("result","F");
-            param.put("msg","网络异常!");
+            param.put("result", "F");
+            param.put("msg", "网络异常!");
             return param;
         }
-
+        /** 就诊预约*/
         YyRegisterMdl yy = new YyRegisterMdl();
         yy.setRegisterDate(req.getParameter("date"));
         yy.setRegisterTime(req.getParameter("time"));
@@ -120,16 +134,23 @@ public class YyCtl {
         yy.setUserId(user.getUserId());
         yy.setWorkAddr(req.getParameter("workAddr"));
         yy.setWorkInfo(req.getParameter("workInfo"));
-        try{
+        try {
             yySrv.addYy(yy);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            param.put("result","F");
-            param.put("msg","网络异常!");
+            param.put("result", "F");
+            param.put("msg", "网络异常!");
             return param;
         }
-        param.put("result","T");
-        param.put("msg","预约成功!");
+        param.put("result", "T");
+        param.put("msg", "预约成功!");
         return param;
+    }
+
+    @RequestMapping(value = "/selYy", method = RequestMethod.POST)
+    public ModelAndView selYy(@RequestParam String sms, ModelAndView model) {
+
+        model.setViewName("/yyCheck");
+        return model;
     }
 }

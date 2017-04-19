@@ -15,6 +15,18 @@
     <div class="rg_nr">
         <form id="rg_nrfromReg">
             <dl class="rg_nr_dl">
+                <dt>预约日期：</dt>
+                <dd>
+                    <input disabled="disabled" class="rg_nr_input" th:value="${_date}"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>预约时间：</dt>
+                <dd>
+                    <input disabled="disabled" class="rg_nr_input" th:value="${_timeZh}"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
                 <dt>预约类型：</dt>
                 <dd>
                     <select class="rg_nr_dl_select" id="rptType" style="color:#ccc">
