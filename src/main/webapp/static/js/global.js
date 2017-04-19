@@ -111,7 +111,9 @@ var Global = (function ($) {
         $("#bg").css({display: "block", height: $(document).height()});
         closeWindow(bgcol);
     }
-    //登录
+    /**
+     * 登录
+     */
     var login = function(){
         var param = {};
         param.userSms = $("#mobileQuickLogin").val();
@@ -131,11 +133,17 @@ var Global = (function ($) {
             if(data.result=='T'){
                 $("#djdl_close").click();
                 Global.msg(data.msg,3000);
+                window.setTimeout("window.location.reload();",3000);
             }
             $(".vre_err").show();
             $("#qresultspan").text(data.msg);
         },'json');
     }
+    /**
+     * 消息提示
+     * @param msg
+     * @param time
+     */
     var msg = function(msg,time){
         swal({
             text: msg,

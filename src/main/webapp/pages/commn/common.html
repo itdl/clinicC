@@ -5,9 +5,14 @@
             <p class="dbnav_context_left">
                 <img src="/static/img/dbnav.png"/><span>电话预约:13942279217</span>
             </p>
-            <p class="dbnav_context_right" id="isLogin">欢迎来到【张育发诊所就诊预约】平台，请
+            <p class="dbnav_context_right" id="isLogin" th:if="${session.uname == null}">
+                欢迎来到【张育发诊所就诊预约】平台，请
                 <a href="javascript:void(0);" class="db_denglu" onclick="Global.center('#djdl','#djdl_close');">登录</a>
                 <a href="/register" target="_blank">注册</a>
+            </p>
+            <p class="dbnav_context_right" style="margin-left: 222px;" id="show" th:if="${session.uname != null}">
+                欢迎-<a href="javascript:;" target="_blank" th:text="${session.uname}"/> -来到【张育发诊所就诊预约】平台!
+                <a href="/exit" target="_blank" class="db_denglu">退出登录</a>
             </p>
         </div>
     </div>
@@ -51,7 +56,7 @@
                             <input type="button" name="submit" onclick="Global.login();" class="ksdl_ul_denglu djdl_nav_qr" value="登录"/>
                             <a href="/register" class="ksdl_ul_register" target="_blank">注册新用户</a>
                         </div>
-                        <a href="javascript:void(0);" class="ksdl_ul_wjmm" onclick="Global.popDiv();">忘记密码?</a>
+                        <!--<a class="ksdl_ul_wjmm"/>-->
                     </div>
                 </form>
             </div>

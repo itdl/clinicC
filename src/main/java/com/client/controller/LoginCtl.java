@@ -43,6 +43,7 @@ public class LoginCtl {
         param.clear();
         if(user != null){
             req.getSession().setAttribute(GlobalVar.UINFO,user);
+            req.getSession().setAttribute("uname",user.getUserName());
             param.put("result","T");
             param.put("msg","你好-"+user.getUserName()+",欢迎登录就诊平台!");
             return param;
