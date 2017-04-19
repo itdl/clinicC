@@ -32,17 +32,17 @@
                             </tr>
                             <tr>
                                 <td class="ksorder_ym" th:each="date : ${dates}">
-                                    <a onclick="Index.yyClick(this);" th:id="${date.vals.sw}">预约</a>
+                                    <a onclick="Index.yyClick(this);" th:attr="name=${dateout}" th:id="${date.vals.sw}" style="color: re; ">预约</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="ksorder_ym" th:each="date : ${dates}">
-                                    <a onclick="Index.yyClick(this);" th:id="${date.vals.zw}">预约</a>
+                                    <a onclick="Index.yyClick(this);" th:attr="name=${dateout}" th:id="${date.vals.zw}">预约</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="ksorder_ym" th:each="date : ${dates}">
-                                    <a onclick="Index.yyClick(this);" th:id="${date.vals.xw}">预约</a>
+                                    <a onclick="Index.yyClick(this);" th:attr="name=${dateout}" th:id="${date.vals.xw}">预约</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -87,8 +87,7 @@
 </div>
 <div th:replace="commn/footer :: footer"/>
 <script th:inline="javascript">
-    var _id = [[${id}]];
-    var _msg= [[${msg}]];
+    var stopids = [[${stopids}]];
 </script>
 <script type="text/javascript" src="/static/appjs/index.js"></script>
 </body>

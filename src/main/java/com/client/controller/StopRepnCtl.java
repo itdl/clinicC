@@ -4,6 +4,7 @@ import com.client.model.YyconfigMdl;
 import com.client.service.YySrv;
 import com.client.util.ComnUtil;
 import com.client.util.DateUtil;
+import com.client.util.GlobalVar;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class StopRepnCtl {
     @RequestMapping(value="/stopRepn",method= RequestMethod.GET)
     public ModelAndView stopRepn(ModelAndView model){
         Map<String,Object> param = new HashMap<String,Object>();
-        param.put("registerDate", DateUtil.FormatDate(new Date()));
+        param.put("registerDate", DateUtil.FormatDate(new Date(), GlobalVar.DATE));
         List<YyconfigMdl> yyConfigs = yySrv.stopRepnList(param);
         model.setViewName("stopRepn");
         if(yyConfigs==null)

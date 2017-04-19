@@ -33,6 +33,11 @@ public class YySrvImpl implements YySrv {
     }
 
     @Override
+    public List<YyRegisterMdl> selYyUnion(Map<String, Object> param) {
+        return yyMapper.selYyUnion(param);
+    }
+
+    @Override
     public List<YyconfigMdl> stopRepnList(Map<String,Object> param) {
         return yyMapper.stopRepnList(param);
     }

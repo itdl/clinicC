@@ -54,8 +54,8 @@ public class DateUtil {
         calendar.add(Calendar.DAY_OF_MONTH, count);  //设置为前一天
         return calendar.getTime();
     }
-    public static String FormatDate(Date date){
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd"); //设置时间格式
+    public static String FormatDate(Date date,String format){
+        SimpleDateFormat sdf=new SimpleDateFormat(format); //设置时间格式
         return sdf.format(date);    //格式化前一天
     }
 }

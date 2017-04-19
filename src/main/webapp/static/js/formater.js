@@ -50,14 +50,22 @@ var fmt = {
 		return typeof (fhPeriodUnit[source]) == "undefined" ? ""
 				: fhPeriodUnit[source];
 	},
-	formatOrderType : function(v) {
-		var t = [];
-		t["1"] = "待就诊";
-		t["2"] = "已取消";
-		t["4"] = "已就诊";
-		t["64"] = "爽约";
-		t["256"] = "已停诊";
-		return typeof (t[v]) == "undefined" ? "" : t[v];
+	formatOrderType : function(source) {
+        if (typeof source == 'undefined' || !source) {
+            return "未知";
+        }
+        switch (source) {
+            case '0':
+                return "已预约";
+            case '1':
+                return "已就诊";
+            case '2':
+            	return "取消预约";
+            case '3':
+                return "爽约";
+            default:
+                return "未知";
+        }
 	},
 	formatScheduleEditType : function(v) {
 		var t = [];
@@ -80,7 +88,7 @@ var fmt = {
 			return "上午";
 		case '2':
 			return "下午";
-		case '4':
+		case '3':
 			return "晚上";
 		default:
 			return "未知";
@@ -145,35 +153,6 @@ var fmt = {
 			s_x += '0';
 		}
 		return '￥' + s_x;
-	},
-	/**
-	 * 格式化渠道
-	 * 
-	 * @param source
-	 * @returns {String}
-	 */
-	formatChannel : function(source) {
-		if (typeof source == 'undefined'||!source) {
-			return "未知";
-		}
-		switch (source) {
-		case '1':
-			return "114坐席职场";
-		case '2':
-			return "114生活助手客户端";
-		case '4':
-			return "微信预约挂号";
-		case '8':
-			return "统一预约挂号网站";
-		case '16':
-			return "114门户网站";
-		case '32':
-			return "快医客户端";
-		case '256':
-			return "电视IPTV";
-		default:
-			return "未知";
-		}
 	},
 	/**
 	 * 格式化是否停诊
@@ -256,65 +235,6 @@ var fmt = {
 		case '3':
 			return "全停诊";
 		default:
-			return "未知";
-		}
-	},
-	/**
-	 * 格式化替换方式
-	 * 
-	 * @param source
-	 * @returns {String}
-	 */
-	formatReplaceWay : function(source) {
-		if (typeof source == 'undefined' || !source) {
-			return "未知";
-		}
-		switch (source) {
-		case '1':
-			return "同级替换";
-		case '2':
-			return "升级替换";
-		case '3':
-			return "不可替换";
-		case '4':
-			return "降级替换";
-		default:
-			return "未知";
-		}
-	},
-	/**
-	 * 格式化报销方式
-	 */
-	formatReimbursementType:function(source){
-		if (typeof source == 'undefined'||!source) {
-			return "未知";
-		}
-		switch(source){
-		case '1':
-			return "医疗保险";
-		case '2':
-			return "商业保险";
-		case '3':
-			return "公费医疗";
-		case '4':
-			return "新农合";
-		case '5':
-			return "异地医保";
-		case '6':
-			return "红本医疗";
-		case '7':
-			return "工伤";
-		case '8':
-			return "一老一小";
-		case '9':
-			return "超转";
-		case '10':
-			return "自费";
-		case '11':
-			return "其他";
-		case '12':
-			return "生育险";
-		default :
 			return "未知";
 		}
 	}

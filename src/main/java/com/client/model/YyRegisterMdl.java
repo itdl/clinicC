@@ -14,6 +14,7 @@ public class YyRegisterMdl {
     private String remarks;
     private int rptFlg;
     private int stood;
+    private int isCancel;
     private int registerCount;
 
     public int getId() {
@@ -102,5 +103,13 @@ public class YyRegisterMdl {
 
     public void setRegisterCount(int registerCount) {
         this.registerCount = registerCount;
+    }
+
+    public int getIsCancel() {
+        return isCancel;
+    }
+
+    public void setIsCancel(int isCancel) {
+        this.isCancel = isCancel;
     }
 }

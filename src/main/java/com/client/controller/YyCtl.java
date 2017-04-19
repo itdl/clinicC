@@ -66,8 +66,6 @@ public class YyCtl {
 
     /**
      * 跳转至预订页面
-     *
-     * @param req
      * @param model
      * @return
      */
@@ -95,7 +93,7 @@ public class YyCtl {
         param.put("registerDate", req.getParameter("date"));
         param.put("registerTime", req.getParameter("time"));
         param.put("userId", user.getUserId());
-        String today = StringUtils.substring(DateUtil.FormatDate(new Date()), 0, 10);
+        String today = DateUtil.FormatDate(new Date(),GlobalVar.DATE);
         if (req.getParameter("date").compareTo(today) < 0) {
             param.clear();
             param.put("result", "F");
@@ -134,6 +132,7 @@ public class YyCtl {
         yy.setUserId(user.getUserId());
         yy.setWorkAddr(req.getParameter("workAddr"));
         yy.setWorkInfo(req.getParameter("workInfo"));
+        yy.setIsCancel(0);
         try {
             yySrv.addYy(yy);
         } catch (Exception e) {
@@ -145,12 +144,5 @@ public class YyCtl {
         param.put("result", "T");
         param.put("msg", "预约成功!");
         return param;
-    }
-
-    @RequestMapping(value = "/selYy", method = RequestMethod.POST)
-    public ModelAndView selYy(@RequestParam String sms, ModelAndView model) {
-
-        model.setViewName("/yyCheck");
-        return model;
     }
 }

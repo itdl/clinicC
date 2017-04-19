@@ -1,9 +1,11 @@
 var Index = (function ($) {
     var menuInit = function () {
         $("#yyxx").attr("class", "ksorder_ul_color");
-        if(_id!=null){
-            $("#"+_id).html(_msg);
-            $("#"+_id).removeAttr("onclick");
+        /** 初始化停诊信息 */
+        if(stopids!=null){
+            for(var i in stopids){
+                $("#"+stopids[i]).text("停诊").attr("style","color:#66CCFF;").removeAttr("onclick");
+            }
         }
     }
     /**
@@ -11,6 +13,10 @@ var Index = (function ($) {
      * @param obj
      */
     var yyClick = function (obj) {
+        if(obj.name=='0'){
+            Global.msg("过了下午14:00后无法预约了亲!");
+            return;
+        }
         $.ajax({
             type: 'POST',
             url: '/yyCheck',

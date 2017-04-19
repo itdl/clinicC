@@ -16,40 +16,24 @@
                     <dt>预约手机号码：</dt>
                     <dd><input type="text" name="sms" placeholder="请输入您预约手机号码" class="Rese_db_dl_inp"/></dd>
                 </dl>
-                <button type="submit" class="hosi_cancel_btn">查询订单</button>
+                <button onclick="SelCancel.selYy();" class="hosi_cancel_btn">查询订单</button>
             </form>
         </div>
-        <table class="hosi_cancel_table" cellpadding="0" cellspacing="0" border="0">
-            <tr>
+        <table th:if="${yys!=null}" class="hosi_cancel_table" cellpadding="0" cellspacing="0" border="0">
+            <tr th:each="yy: ${yys}">
                 <td>预约日期：</td>
-                <td colspan="2">
-                    <input readonly="readonly" class="rg_nr_input_yys" th:value="${_date}"/>
-                </td>
+                <td th:text="${yy.registerDate}"></td>
                 <td>预约时间：</td>
-                <td colspan="2">
-                    <input readonly="readonly" class="rg_nr_input_yys" th:value="${_timeZh}"/>
+                <td>
+                    <script th:inline="javascript">
+                        document.write(fmt.formatDutyCode([[${yy.registerDate}]]));
+                    </script>
                 </td>
-                <td><a href="javascript;">预约取消</a></td>
-            </tr>
-            <tr>
-                <td>预约日期：</td>
-                <td colspan="2">
-                    <input readonly="readonly" class="rg_nr_input_yys" th:value="${_date}"/>
-                </td>
-                <td>预约时间：</td>
-                <td colspan="2">
-                    <input readonly="readonly" class="rg_nr_input_yys" th:value="${_timeZh}"/>
-                </td>
-                <td><a href="javascript;">预约取消</a></td>
-            </tr>
-            <tr>
-                <td>预约日期：</td>
-                <td colspan="2">
-                    <input readonly="readonly" class="rg_nr_input_yys" th:value="${_date}"/>
-                </td>
-                <td>预约时间：</td>
-                <td colspan="2">
-                    <input readonly="readonly" class="rg_nr_input_yys" th:value="${_timeZh}"/>
+                <td>预约状态：</td>
+                <td>
+                    <script th:inline="javascript">
+                        document.write(fmt.formatOrderType([[${yy.rptFlg}]]));
+                    </script>
                 </td>
                 <td><a href="javascript;">预约取消</a></td>
             </tr>

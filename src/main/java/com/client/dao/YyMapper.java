@@ -13,5 +13,6 @@ public interface YyMapper {
     List<YyRegisterMdl> selYyCount(Map<String,Object> param);
     int addYy(YyRegisterMdl yy);
     YyRegisterMdl selYyHisty(Map<String,Object> param);
+    List<YyRegisterMdl> selYyUnion(Map<String,Object> param);
     List<YyconfigMdl> stopRepnList(Map<String,Object> param);
 }
