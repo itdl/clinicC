@@ -23,6 +23,11 @@ public class UserCtl {
     @Resource
     private UserSrv userSrv;
 
+    @RequestMapping(value="/regr",method= RequestMethod.GET)
+    public String register(){
+        return "register";
+    }
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> register(HttpServletRequest req) {

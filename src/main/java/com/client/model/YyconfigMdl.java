@@ -6,31 +6,31 @@ package com.client.model;
  * @time 2017/4/16.
  */
 public class YyconfigMdl {
-    private String register_date;
-    private String register_time;
-    private String register_used;
+    private String registerDate;
+    private String registerTime;
+    private String registerUsed;
 
-    public String getRegister_date() {
-        return register_date;
+    public String getRegisterDate() {
+        return registerDate;
     }
 
-    public void setRegister_date(String register_date) {
-        this.register_date = register_date;
+    public void setRegisterDate(String registerDate) {
+        this.registerDate = registerDate;
     }
 
-    public String getRegister_time() {
-        return register_time;
+    public String getRegisterTime() {
+        return registerTime;
     }
 
-    public void setRegister_time(String register_time) {
-        this.register_time = register_time;
+    public void setRegisterTime(String registerTime) {
+        this.registerTime = registerTime;
     }
 
-    public String getRegister_used() {
-        return register_used;
+    public String getRegisterUsed() {
+        return registerUsed;
     }
 
-    public void setRegister_used(String register_used) {
-        this.register_used = register_used;
+    public void setRegisterUsed(String registerUsed) {
+        this.registerUsed = registerUsed;
     }
 }

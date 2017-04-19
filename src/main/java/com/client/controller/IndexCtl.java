@@ -1,8 +1,5 @@
 package com.client.controller;
 
-import com.client.dao.IndexMapper;
-import com.client.model.YyRegisterMdl;
-import com.client.service.YySrv;
 import com.client.service.indexSrv;
 import com.client.util.DateUtil;
 import org.springframework.stereotype.Controller;
@@ -18,11 +15,9 @@ import java.util.*;
  * Created by BikeBoy on 2017/3/29.
  */
 @Controller
-public class indexCtl {
+public class IndexCtl {
     @Resource
     private indexSrv indexSrv;
-    @Resource
-    private YySrv yySrv;
 
     @RequestMapping(value="/",method= RequestMethod.GET)
     public ModelAndView goIndex(ModelAndView model, HttpServletRequest req){
@@ -59,20 +54,5 @@ public class indexCtl {
     @RequestMapping(value="/ninfo",method= RequestMethod.GET)
     public String noticeInfo(){
         return "noticeInfo";
-    }
-
-    @RequestMapping(value="/stopRepn",method= RequestMethod.GET)
-    public String stopRepn(){
-        return "stopRepn";
-    }
-
-    @RequestMapping(value="/sc",method= RequestMethod.GET)
-    public String selCancel(){
-        return "selCancel";
-    }
-
-    @RequestMapping(value="/register",method= RequestMethod.GET)
-    public String register(){
-        return "register";
     }
 }

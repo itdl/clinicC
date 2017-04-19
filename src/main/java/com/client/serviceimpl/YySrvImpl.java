@@ -2,6 +2,7 @@ package com.client.serviceimpl;
 
 import com.client.dao.YyMapper;
 import com.client.model.YyRegisterMdl;
+import com.client.model.YyconfigMdl;
 import com.client.service.YySrv;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,10 @@ public class YySrvImpl implements YySrv {
     @Override
     public YyRegisterMdl selYyHisty(Map<String, Object> param) {
         return yyMapper.selYyHisty(param);
+    }
+
+    @Override
+    public List<YyconfigMdl> stopRepnList(Map<String,Object> param) {
+        return yyMapper.stopRepnList(param);
     }
 }
