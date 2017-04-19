@@ -2861,7 +2861,7 @@ a {
 
 .tingzhengxingxi_context {
     overflow: hidden;
-    min-height: 246px;
+    padding-bottom: 25px;
 }
 
 .tingzhengxingxi_context h2 {
@@ -2876,7 +2876,6 @@ a {
 .tingzhengxingxi_context table {
     width: 989px;
     margin: 0 auto;
-    margin-bottom: 20px;
     background: #e0e0e0;
     border-right: 1px solid #dcdddd;
     border-bottom: 1px solid #dcdddd;
@@ -6400,6 +6399,11 @@ a {
     z-index: 3;
     float: left;
     padding-left: 4px;
+}
+
+.rg_nr_input_yys {
+    border: none;
+    background-color: #f4f6fa;
 }
 
 .rg_nr_blank {
