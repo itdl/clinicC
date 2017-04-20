@@ -10,7 +10,7 @@
                 <a href="javascript:void(0);" class="db_denglu" onclick="Global.center('#djdl','#djdl_close');">登录</a>
                 <a href="/regr" target="_blank">注册</a>
             </p>
-            <p class="dbnav_context_right" style="margin-left: 222px;" id="show" th:if="${session.uname != null}">
+            <p class="dbnav_context_right" style="margin-left: 222px;" th:if="${session.uname != null}">
                 欢迎-<a href="javascript:;" target="_blank" th:text="${session.uname}"/> -来到【张育发诊所就诊预约】平台!
                 <a href="javascript:;" target="_blank" class="db_denglu" onclick="Global.exit();">退出登录</a>
             </p>
