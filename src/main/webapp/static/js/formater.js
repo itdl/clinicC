@@ -51,17 +51,17 @@ var fmt = {
 				: fhPeriodUnit[source];
 	},
 	formatOrderType : function(source) {
-        if (typeof source == 'undefined' || !source) {
+        if (source == undefined||source==null){
             return "未知";
         }
         switch (source) {
-            case '0':
+            case 0:
                 return "已预约";
-            case '1':
+            case 1:
                 return "已就诊";
-            case '2':
+            case 2:
             	return "取消预约";
-            case '3':
+            case 3:
                 return "爽约";
             default:
                 return "未知";

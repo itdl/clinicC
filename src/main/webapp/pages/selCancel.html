@@ -11,10 +11,10 @@
     <div class="tingzhengxingxi_title"><p>查询/取消</p></div>
     <div class="tingzhengxingxi_context">
         <div class="hosi_cancel">
-            <form id="selYy">
+            <form id="selYy" action="/selYy" method="post">
                 <dl class="hosi_cancel_dl">
                     <dt>预约手机号码：</dt>
-                    <dd><input type="text" name="sms" placeholder="请输入您预约手机号码" class="Rese_db_dl_inp"/></dd>
+                    <dd><input type="text" th:value="${sms}" name="sms" placeholder="请输入您预约手机号码" class="Rese_db_dl_inp"/></dd>
                 </dl>
                 <button onclick="SelCancel.selYy();" class="hosi_cancel_btn">查询订单</button>
             </form>
@@ -26,7 +26,7 @@
                 <td>预约时间：</td>
                 <td>
                     <script th:inline="javascript">
-                        document.write(fmt.formatDutyCode([[${yy.registerDate}]]));
+                        document.write(fmt.formatDutyCode([[${yy.registerTime}]]));
                     </script>
                 </td>
                 <td>预约状态：</td>
@@ -39,6 +39,7 @@
             </tr>
         </table>
     </div>
+    <div th:if="${yysize == null}" id="fill" style="padding-top: 75px;border-top: 1px solid #dcdddd;"/>
 </div>
 <div th:replace="commn/footer :: footer"/>
 <script type="text/javascript" src="/static/appjs/selCancel.js"></script>

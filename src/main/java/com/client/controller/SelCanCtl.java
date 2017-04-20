@@ -36,7 +36,10 @@ public class SelCanCtl {
         List<YyRegisterMdl> yys = yySrv.selYyUnion(param);
         if(yys!=null)
             model.addObject("yys",yys);
+        if(yys.size()>4)
+            model.addObject("yysize",yys.size());
         model.setViewName("selCancel");
+        model.addObject("sms",sms);
         return model;
     }
 }
