@@ -5,7 +5,7 @@
             <p class="dbnav_context_left">
                 <img src="/static/img/dbnav.png"/><span>电话预约:13942279217</span>
             </p>
-            <p class="dbnav_context_right" id="loginDiv" th:if="${session.uname == null}">
+            <p class="dbnav_context_right" id="isLogin" th:if="${session.uname == null}">
                 欢迎来到【张育发诊所就诊预约】平台，请
                 <a href="javascript:void(0);" class="db_denglu" onclick="Global.center('#djdl','#djdl_close');">登录</a>
                 <a href="/regr" target="_blank">注册</a>

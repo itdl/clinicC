@@ -14,7 +14,7 @@
             <form id="selYy" action="/selYy" method="post">
                 <dl class="hosi_cancel_dl">
                     <dt>预约手机号码：</dt>
-                    <dd><input type="text" th:value="${sms}" name="sms" placeholder="请输入您预约手机号码" class="Rese_db_dl_inp"/></dd>
+                    <dd><input id="sms" th:value="${sms}" name="sms" placeholder="请输入您预约手机号码" class="Rese_db_dl_inp"/></dd>
                 </dl>
                 <button onclick="SelCancel.selYy();" class="hosi_cancel_btn">查询订单</button>
             </form>

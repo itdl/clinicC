@@ -105,11 +105,11 @@
         ORDER BY id DESC
     </select>
     <update id="yyCancel" parameterType="java.util.Map">
-        UPDATE clinic_client_register
-        SET rpt_flg = #{rptFlg}
+        UPDATE clinic_client_register a,clinic_client_user b
+        SET a.rpt_flg = #{rptFlg}
         WHERE 1=1
-        AND user_id = #{userId}
-        AND user_sms = #{sms}
+        AND a.user_id = #{userId}
+        AND b.user_sms = #{sms}
         AND register_date = #{registerDate}
         AND register_time = #{registerTime}
     </update>

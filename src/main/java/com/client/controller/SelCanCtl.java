@@ -55,21 +55,22 @@ public class SelCanCtl {
         UserMdl user = (UserMdl) req.getSession().getAttribute(GlobalVar.UINFO);
         param.put("userId",user.getUserId());
         param.put("sms",req.getParameter("sms"));
-        String[] dt = req.getParameter("dt").split(",");
+        String[] dt = req.getParameter("dt").split("_");
         param.put("registerDate",dt[0]);
         param.put("registerTime",dt[1]);
+        param.put("rptFlg",2);
         try{
             yySrv.yyCancel(param);
         }catch (Exception e){
             e.printStackTrace();
             param.clear();
             param.put("result","F");
-            param.put("result","网络异常请稍后再试");
+            param.put("msg","网络异常请稍后再试");
             return param;
         }
         param.clear();
         param.put("result","T");
-        param.put("result","您已取消预约");
+        param.put("msg","您已取消预约");
         return param;
     }
 }

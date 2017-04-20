@@ -16,12 +16,14 @@ var SelCancel = (function($){
      * @param obj
      */
     var cancel =function(obj){
-        if(obj.id == null)
+        if(!Gvali.notBlankValue(obj.id))
             Global.msg("无法获取预约时间");
-        $.post("/yycancel",{dt:obj.id},function(data){
+        if(!Gvali.notBlankValue($("#sms").val()))
+            Global.msg("预约手机号码不能为空");
+        $.post("/yycancel",{dt:obj.id,sms:$("#sms").val()},function(data){
             Global.msg(data.msg);
             if(data.result=='T')
-                location.reload();
+                window.setTimeout('location.reload();',2000);
         },'json');
     }
     return {
