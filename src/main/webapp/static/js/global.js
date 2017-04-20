@@ -114,12 +114,15 @@ var Global = (function ($) {
      * @param msg
      * @param time
      */
-    var msg = function(msg,time,isConfirm,close){
+    var msg = function(msg,time,isConfirm,close,cancel){
         swal({
             text: msg,
             timer: time==null?2000:time,
             showConfirmButton: isConfirm==null?false:true,
-            showCloseButton: close==null?true:close
+            showCloseButton: close==null?true:close,
+            showCancelButton:cancel==null?false:cancel
+        },function(){
+            return ;
         });
     }
     /**
@@ -143,7 +146,7 @@ var Global = (function ($) {
         $.post("/login",param,function(data){
             if(data.result=='T'){
                 $("#djdl_close").click();
-                $("#isLogin").attr("style","margin-left: 222px;");
+                $("#loginDiv").attr("style","margin-left: 222px;");
                 var topmsg = '欢迎-<a href="javascript:;" target="_blank">'+data.uname+'</a> -来到【张育发诊所就诊预约】平台！'+
                     '<a href="javascript:;" target="_blank" class="db_denglu" onclick="Global.exit();">退出登录</a>';
                 $("#isLogin").html(topmsg);

@@ -102,6 +102,15 @@
         <if test="isCancel != null">
             AND is_cancel=#{isCancel}
         </if>
-        ORDER BY id
+        ORDER BY id DESC
     </select>
+    <update id="yyCancel" parameterType="java.util.Map">
+        UPDATE clinic_client_register
+        SET rpt_flg = #{rptFlg}
+        WHERE 1=1
+        AND user_id = #{userId}
+        AND user_sms = #{sms}
+        AND register_date = #{registerDate}
+        AND register_time = #{registerTime}
+    </update>
 </mapper>

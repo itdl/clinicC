@@ -41,4 +41,9 @@ public class YySrvImpl implements YySrv {
     public List<YyconfigMdl> stopRepnList(Map<String,Object> param) {
         return yyMapper.stopRepnList(param);
     }
+
+    @Override
+    public int yyCancel(Map<String, Object> param) {
+        return yyMapper.yyCancel(param);
+    }
 }

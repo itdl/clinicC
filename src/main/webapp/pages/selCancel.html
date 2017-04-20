@@ -35,13 +35,17 @@
                         document.write(fmt.formatOrderType([[${yy.rptFlg}]]));
                     </script>
                 </td>
-                <td><a href="javascript;">预约取消</a></td>
+                <td>
+                    <a th:id="${yy.registerDate}+'_'+${yy.registerTime}"
+                       href="javascript:void(0);" onclick="SelCancel.cancel(this);">预约取消</a>
+                </td>
             </tr>
         </table>
     </div>
     <div th:if="${yysize == null}" id="fill" style="padding-top: 75px;border-top: 1px solid #dcdddd;"/>
 </div>
 <div th:replace="commn/footer :: footer"/>
+<script th:inline="javascript">var _msg=[[${msg}]];</script>
 <script type="text/javascript" src="/static/appjs/selCancel.js"></script>
 </body>
 </html>

@@ -15,4 +15,5 @@ public interface YySrv {
     YyRegisterMdl selYyHisty(Map<String,Object> param);
     List<YyRegisterMdl> selYyUnion(Map<String,Object> param);
     List<YyconfigMdl> stopRepnList(Map<String,Object> param);
+    int yyCancel(Map<String,Object> param);
 }
