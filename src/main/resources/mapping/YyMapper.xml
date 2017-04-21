@@ -24,7 +24,7 @@
     <select id="selYyCount" parameterType="java.util.Map" resultMap="YyRegisters">
         SELECT register_time,register_date,COUNT(register_date) AS yy_count
         FROM(
-            SELECT register_date,register_time
+            SELECT register_date,register_time,rpt_flg
             FROM clinic_client_register
             WHERE 1=1
             ORDER BY register_time,register_date
@@ -35,6 +35,9 @@
         </if>
         <if test="registerTime != null">
             AND register_time=#{registerTime}
+        </if>
+        <if test="rptFlg != null">
+            AND rpt_flg=#{rptFlg}
         </if>
         GROUP BY  register_time,register_date
         ORDER BY register_date,register_time

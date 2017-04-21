@@ -53,8 +53,9 @@ public class YyCtl {
             Map<String, Object> param = new HashMap<String, Object>();
             param.put("registerDate", condition[0]);
             param.put("registerTime", condition[1]);
+            param.put("rptFlg", 0);
             List<YyRegisterMdl> yy = yySrv.selYyCount(param);
-            if (yy.get(0).getRegisterCount() > paramCfg.getRegisterTimes()) {
+            if (yy.size()>0&&yy.get(0).getRegisterCount() > paramCfg.getRegisterTimes()) {
                 pw.write("{\"result\":\"F\",\"id\":\""+dt+"\",\"msg\":\"已满约!\"}");
                 return;
             }
