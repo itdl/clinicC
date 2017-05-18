@@ -74,8 +74,8 @@ public class IndexCtl {
         String nowdate= DateUtil.FormatDate(new Date(), GlobalVar.DATETIME);
         int dateout = StringUtils.substring(nowdate,11).compareTo("14:00:00");
         model.addObject("dateout",dateout>0?0:1);
-        model.addObject("dates",dates);
-        model.setViewName("index");
+        model.addObject("dates",dates);//后台逻辑产生的数据返回到前台
+        model.setViewName("index");//后台数据在前台那个页面显示
         return model;
     }
 
