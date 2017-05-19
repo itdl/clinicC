@@ -13,10 +13,10 @@ var Index = (function ($) {
      * @param obj
      */
     var yyClick = function (obj) {
-//        if(obj.name=='0'){
-//            Global.msg("过了下午14:00后无法预约了亲!");
-//            return;
-//        }
+       if(obj.name=='0'){
+           Global.msg("过了下午14:00后无法预约了亲!");
+           return;
+       }
         $.ajax({
             type: 'POST',
             url: '/yyCheck',
