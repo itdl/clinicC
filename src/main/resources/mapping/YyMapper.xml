@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.client.dao.YyMapper">
+    <resultMap id="YyRegisters" type="com.client.model.YyRegisterMdl">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="register_date" property="registerDate"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="rpt_type" property="rptType"/>
+        <result column="work_info" property="workInfo"/>
+        <result column="work_addr" property="workAddr"/>
+        <result column="remarks" property="remarks"/>
+        <result column="rpt_flg" property="rptFlg"/>
+        <result column="stood" property="stood"/>
+        <result column="is_cancel" property="isCancel"/>
+        <result column="yy_count" property="registerCount"/>
+    </resultMap>
+    <resultMap id="YyConfigs" type="com.client.model.YyconfigMdl">
+        <result column="register_date" property="registerDate"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="register_used" property="registerUsed"/>
+    </resultMap>
+    <!-- 查询预约记录数 -->
+    <select id="selYyCount" parameterType="java.util.Map" resultMap="YyRegisters">
+        SELECT register_time,register_date,COUNT(register_date) AS yy_count
+        FROM(
+            SELECT register_date,register_time,rpt_flg
+            FROM clinic_client_register
+            WHERE 1=1
+            ORDER BY register_time,register_date
+        ) a
+        WHERE 1=1
+        <if test="registerDate != null">
+            AND register_date=#{registerDate}
+        </if>
+        <if test="registerTime != null">
+            AND register_time=#{registerTime}
+        </if>
+        <if test="rptFlg != null">
+            AND rpt_flg=#{rptFlg}
+        </if>
+        GROUP BY  register_time,register_date
+        ORDER BY register_date,register_time
+    </select>
+    <!-- 添加预约信息 -->
+    <insert id="addYy" parameterType="com.client.model.YyRegisterMdl">
+        INSERT INTO clinic_client_register
+        (user_id,register_date,register_time,rpt_type,work_info,work_addr,remarks,rpt_flg,stood,is_cancel)
+        VALUES
+        (#{userId},#{registerDate},#{registerTime},#{rptType},#{workInfo},#{workAddr},#{remarks},#{rptFlg},#{stood},#{isCancel})
+    </insert>
+    <!-- 查询是否已经预约 -->
+    <select id="selYyHisty" parameterType="java.util.Map" resultMap="YyRegisters">
+        SELECT id,user_id,register_date,register_time,rpt_type,
+        work_info,work_addr,remarks,rpt_flg,stood,is_cancel
+        FROM clinic_client_register
+        WHERE 1=1
+        <if test="userId != null">
+            AND user_id=#{userId}
+        </if>
+        <if test="registerDate != null">
+            AND register_date=#{registerDate}
+        </if>
+        <if test="registerTime != null">
+            AND register_time=#{registerTime}
+        </if>
+        <if test="isCancel != null">
+            AND is_cancel=#{isCancel}
+        </if>
+        ORDER BY id
+    </select>
+    <!-- 预约接诊设置列表 -->
+    <select id="stopRepnList" parameterType="java.util.Map" resultMap="YyConfigs">
+        SELECT register_date,register_time,register_used
+        FROM clinic_mgr_yyconfig
+        WHERE 1=1
+        <if test="registerUsed != null">
+            AND register_used=#{registerUsed}
+        </if>
+        <if test="registerDate != null">
+            AND <![CDATA[ register_date > #{registerDate} ]]>
+        </if>
+        ORDER BY register_date DESC
+    </select>
+
+    <!-- 查询是否已经预约 -->
+    <select id="selYyUnion" parameterType="java.util.Map" resultMap="YyRegisters">
+        SELECT id,a.user_id,register_date,register_time,rpt_type,
+        work_info,work_addr,remarks,rpt_flg,stood,is_cancel
+        FROM clinic_client_register a
+        LEFT JOIN clinic_client_user b ON a.user_id = b.user_id
+        WHERE 1=1
+        <if test="sms != null">
+            AND b.user_sms=#{sms}
+        </if>
+        <if test="userId != null">
+            AND a.user_id=#{userId}
+        </if>
+        <if test="registerDate != null">
+            AND register_date=#{registerDate}
+        </if>
+        <if test="registerTime != null">
+            AND register_time=#{registerTime}
+        </if>
+        <if test="isCancel != null">
+            AND is_cancel=#{isCancel}
+        </if>
+        ORDER BY id DESC
+    </select>
+    <update id="yyCancel" parameterType="java.util.Map">
+        UPDATE clinic_client_register a,clinic_client_user b
+        SET a.rpt_flg = #{rptFlg}
+        WHERE 1=1
+        AND a.user_id = #{userId}
+        AND b.user_sms = #{sms}
+        AND register_date = #{registerDate}
+        AND register_time = #{registerTime}
+    </update>
+</mapper>

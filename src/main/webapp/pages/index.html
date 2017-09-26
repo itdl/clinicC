@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>张育发诊所就诊预约平台</title>
+    <link th:replace="commn/head :: head"/>
+</head>
+<body>
+<div th:replace="commn/common :: div"/>
+<div th:replace="commn/ksorder :: ksorder_top"/>
+<div id="ksorder_time">
+    <div class="ksorder_time_title">
+        <p class="ksorder_t_p">预约信息</p>
+    </div>
+    <div class="ksorder_time_center">
+        <div class="ksorder_cen_l">
+            <div class="ksorder_cen_l_l">
+                <a class="ksorder_btn_left"></a>
+                <ul>
+                    <li>上午</li>
+                    <li>下午</li>
+                    <li>晚上</li>
+                </ul>
+            </div>
+            <div class="ksorder_cen_l_table">
+                <div class="ksorder_cen_l_t_c" style="width: 659px;">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <th scope="col" th:each="date : ${dates}">
+                                    <p th:text="${date.week}"/><p th:text="${date.date}"/>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="ksorder_ym" th:each="date : ${dates}">
+                                    <a onclick="Index.yyClick(this);" th:attr="name=${dateout}" th:id="${date.vals.sw}">预约</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ksorder_ym" th:each="date : ${dates}">
+                                    <a onclick="Index.yyClick(this);" th:attr="name=${dateout}" th:id="${date.vals.zw}">预约</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ksorder_ym" th:each="date : ${dates}">
+                                    <a onclick="Index.yyClick(this);" th:attr="name=${dateout}" th:id="${date.vals.xw}">预约</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="ksorder_cen_l_r">
+                <a class="ksorder_btn_right"/>
+            </div>
+        </div>
+        <div class="ksorder_cen_r">
+            <div class="ksorder_cen_r_top">
+                <h4>预约规则</h4>
+                <ul>
+                    <li><span>更新时间：</span> 每日8:45更新</li>
+                    <li><span>预约周期：</span> 7天</li>
+                    <li><span>预约时间：</span> 下午14:00停止次日预约挂号</li>
+                    <li><span>取消时间：</span> 就诊前一日14:00前取消</li>
+                </ul>
+                <dl>
+                    <dt>特殊规则</dt>
+                    <dd>
+                        <p>
+                            <br/>①&nbsp;
+                            患者就诊当日须出示预约挂号成功时收到的原始预约成功短信取号就诊；
+                            <br/>②&nbsp;
+                            眼科特需号、足踝中心张建中特需号均为自费，请不要选择其它报销类型；特需收费标准有别于普通门诊；眼科门诊内的眼肌专台、眼肌、屈光均为自费，不能选择其它报销方式；
+                            <br/>③&nbsp;
+                            预预约屈光号源的患者，年龄须在18至50周岁之间，并欲进行近视眼手术，（注：就诊前一周请勿佩戴隐形眼镜）。近视、斜视、弱视患者请预约眼肌科号源；
+                            <br/>④&nbsp;
+                            预约成功后，请患者于就诊当日凭本人有效身份证件（ 医保患者需持社保卡）
+                            <br/>⑤&nbsp;
+                            预约挂号患者的就诊顺序以当天门诊挂号条显示号序为准；
+                            <br/>⑥&nbsp; 爽约处理：
+                            <br/>&nbsp;一年内（自然年）爽约1次，自爽约之日起30日内停止预约挂号服务；<br/>
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="commn/footer :: footer"/>
+<script th:inline="javascript">
+    var stopids = [[${stopids}]];
+</script>
+<script type="text/javascript" src="/static/appjs/index.js"></script>
+</body>
+</html>

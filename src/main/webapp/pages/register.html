@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>张育发诊所就诊预约平台</title>
+    <link th:replace="commn/head :: head"/>
+    <link src="/static/css/zdialog.css"/>
+</head>
+<body>
+<div th:replace="commn/common :: div"/>
+<div id="register_content">
+    <div class="register_top">
+        <p class="register_top_p">注册新用户</p>
+    </div>
+    <div class="rg_nr">
+        <form id="rg_nrfromReg">
+            <dl class="rg_nr_dl">
+                <dt>用户姓名：</dt>
+                <dd>
+                    <input maxlength="20" placeholder="请输入您的真实姓名" type="text" id="userName" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>用户性别：</dt>
+                <dd>
+                    <select class="rg_nr_dl_select" id="sex" style="color:#ccc">
+                        <option value="0" selected="selected">男</option>
+                        <option value="1" style="color:black">女</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>证件类型：</dt>
+                <dd>
+                    <select class="rg_nr_dl_select" id="idType" style="color:#ccc">
+                        <option value="-1" selected="selected">请选择证件类型</option>
+                        <option value="1" style="color:black">身份证</option>
+                        <option value="2" style="color:black">军官证</option>
+                        <option value="3" style="color:black">护照</option>
+                        <option value="4" style="color:black">港澳通行证</option>
+                        <option value="5" style="color:black">台胞证</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>证件号码：</dt>
+                <dd>
+                    <input placeholder="请您使用有效证件号码注册" type="text"  maxlength="20" id="isshefn" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>确认号码：</dt>
+                <dd>
+                    <input placeholder="请您再次输入证件号码确认" type="text" maxlength="20" id="isshefnAgain" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>出生日期：</dt>
+                <dd>
+                    <input id="datepicker" type="text" class="rg_nr_blank" placeholder="请选择出生日期"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>设置密码：</dt>
+                <dd>
+                    <input type="password" placeholder="请输入密码" id="passWord" class="rg_nr_blank" maxlength="20"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>确认密码：</dt>
+                <dd>
+                    <input type="password" maxlength="20" placeholder="请再次输入密码"  id="passWordAgain" class="rg_nr_blank"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>现居住地：</dt>
+                <dd>
+                    <input placeholder="请输入居住地" type="text" maxlength="200" id="jzd" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>手机号码：</dt>
+                <dd>
+                    <input onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="请输入您的手机号码"
+                           onafterpaste="this.value=this.value.replace(/\D/g,'')" type='text'
+                           maxlength="14" class="rg_nr_blank" id="sms"/>
+                </dd>
+            </dl>
+            <input type="button" class="rg_nr_qrzc" value="注册" onclick="Register.regSubmit();"/>
+        </form>
+    </div>
+</div>
+<div id="bg"/>
+<div th:replace="commn/footer :: footer"/>
+<script type="text/javascript" src="/static/appjs/register.js"/>
+<script type="text/javascript" src="/static/js/zdialog.js"/>
+</body>
+</html>

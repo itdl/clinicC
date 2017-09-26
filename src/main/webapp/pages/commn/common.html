@@ -1,0 +1,65 @@
+<div th:fragment="div">
+    <!-- ***************** 系统题头 ***************** -->
+    <div id="dbnav">
+        <div class="dbnav_context">
+            <p class="dbnav_context_left">
+                <img src="/static/img/dbnav.png"/><span>电话预约:13942279217</span>
+            </p>
+            <p class="dbnav_context_right" id="isLogin" th:if="${session.uname == null}">
+                欢迎来到【张育发诊所就诊预约】平台，请
+                <a href="javascript:void(0);" class="db_denglu" onclick="Global.center('#djdl','#djdl_close');">登录</a>
+                <a href="/regr" target="_blank">注册</a>
+            </p>
+            <p class="dbnav_context_right" style="margin-left: 222px;" th:if="${session.uname != null}">
+                欢迎-<a href="javascript:;" target="_blank" th:text="${session.uname}"/> -来到【张育发诊所就诊预约】平台!
+                <a href="javascript:;" target="_blank" class="db_denglu" onclick="Global.exit();">退出登录</a>
+            </p>
+        </div>
+    </div>
+    <div id="top">
+        <div class="top_left">
+            <a href="/">
+                <img src="/static/img/logo.png"/><h2 class="top_h2">张育发诊所就诊预约平台</h2>
+            </a>
+        </div>
+    </div>
+    <!-- ***************** 密码登录 ***************** -->
+    <div id="djdl">
+        <div class="djdl_tab">
+            <div id="djdl_menui" class="djdl_menu">
+                <ul>
+                    <li>快速登录</li>
+                </ul>
+            </div>
+            <div id="djdl_tab_id" class="djdl_tab_box">
+                <form id="rg_nrfrom1">
+                    <div class="ksdl_ul">
+                        <div class="vre_err">
+                            <span id="qresultspan" class="error"></span>
+                        </div>
+                        <dl class="djdl_ty_dl">
+                            <dt>手机号码：</dt>
+                            <dd>
+                                <input id="mobileQuickLogin" type="text" class="register_input"
+                                       maxlength="18" placeholder="请输入注册手机号"/><b class="tipinfo">*</b>
+                            </dd>
+                        </dl>
+                        <dl class="djdl_ty_dl">
+                            <dt>登录密码：</dt>
+                            <dd>
+                                <input id="pwQuickLogin" type="passWord" class="register_input"
+                                       maxlength="18" placeholder="请输入登录密码"/>
+                                <b class="tipinfo">*</b>
+                            </dd>
+                        </dl>
+                        <div class="tydiv">
+                            <input type="button" name="submit" onclick="Global.login();" class="ksdl_ul_denglu djdl_nav_qr" value="登录"/>
+                            <a href="/regr" class="ksdl_ul_register" target="_blank">注册新用户</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="djdl_close"><a></a></div>
+    </div>
+</div>

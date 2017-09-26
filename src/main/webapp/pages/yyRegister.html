@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>张育发诊所就诊预约平台</title>
+    <link th:replace="commn/head :: head"/>
+</head>
+<body>
+<div th:replace="commn/common :: div"/>
+<div th:replace="commn/ksorder :: ksorder_top"/>
+
+<div class="yuyuexuzhi">
+    <div class="yuyuexuzhi_title">
+        <p>门诊预约</p>
+    </div>
+    <div class="rg_nr">
+        <form id="rg_nrfromReg">
+            <dl class="rg_nr_dl">
+                <dt>预约日期：</dt>
+                <dd>
+                    <input disabled="disabled" class="rg_nr_input" th:value="${_date}"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>预约时间：</dt>
+                <dd>
+                    <input disabled="disabled" class="rg_nr_input" th:value="${_timeZh}"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>预约类型：</dt>
+                <dd>
+                    <select class="rg_nr_dl_select" id="rptType" style="color:#ccc">
+                        <option value="1" selected="selected">初诊</option>
+                        <option value="2" style="color:black">复诊</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>职业名称：</dt>
+                <dd>
+                    <input placeholder="请输入职业名称" type="text" id="workInfo" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>工作地址：</dt>
+                <dd>
+                    <input placeholder="请输入工作地址" type="text"  id="workAddr" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <dl class="rg_nr_dl">
+                <dt>病情简述：</dt>
+                <dd>
+                    <input placeholder="请简述您的病情" type="text" id="remarks" class="rg_nr_input"/>
+                </dd>
+            </dl>
+            <input type="button" class="rg_nr_qrzc_left" value="预约" onclick="YyRegister.yyRegister();"/>
+            <input type="button" class="rg_nr_qrzc_right" value="返回" onclick="history.back();"/>
+        </form>
+    </div>
+</div>
+<div th:replace="commn/footer :: footer"/>
+<script th:inline="javascript">var _date = [[${_date}]];var _time = [[${_time}]];</script>
+<script type="text/javascript" src="/static/appjs/yyRegister.js"></script>
+</body>
+</html>

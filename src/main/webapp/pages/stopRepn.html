@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>张育发诊所就诊预约平台</title>
+    <link th:replace="commn/head :: head"/>
+</head>
+<body>
+<div th:replace="commn/common :: div"/>
+<div th:replace="commn/ksorder :: ksorder_top"/>
+<div class="tingzhengxingxi">
+    <div class="tingzhengxingxi_title"><p>停诊信息</p></div>
+    <div class="tingzhengxingxi_context">
+        <h2>停诊信息</h2>
+        <table width="989" height="94" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>日期</td>
+                <td>时间</td>
+                <td>诊所状态</td>
+            </tr>
+            <tr th:if="${yycfgs != null}" th:each="yycfg:${yycfgs}">
+                <td th:text="${yycfg.registerDate}"></td>
+                <td th:text="${yycfg.registerTime}"></td>
+                <td th:text="${yycfg.registerUsed}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div th:replace="commn/footer :: footer"/>
+<script type="text/javascript" src="/static/appjs/stopRepn.js"></script>
+</body>
+</html>

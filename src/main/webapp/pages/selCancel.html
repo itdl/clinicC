@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>张育发诊所就诊预约平台</title>
+    <link th:replace="commn/head :: head"/>
+</head>
+<body>
+<div th:replace="commn/common :: div"/>
+<div th:replace="commn/ksorder :: ksorder_top"/>
+<div class="tingzhengxingxi">
+    <div class="tingzhengxingxi_title"><p>查询/取消</p></div>
+    <div class="tingzhengxingxi_context">
+        <div class="hosi_cancel">
+            <form id="selYy" action="/selYy" method="post">
+                <dl class="hosi_cancel_dl">
+                    <dt>预约手机号码：</dt>
+                    <dd><input id="sms" th:value="${sms}" name="sms" placeholder="请输入您预约手机号码" class="Rese_db_dl_inp"/></dd>
+                </dl>
+                <button onclick="SelCancel.selYy();" class="hosi_cancel_btn">查询订单</button>
+            </form>
+        </div>
+        <table th:if="${yys!=null}" class="hosi_cancel_table" cellpadding="0" cellspacing="0" border="0">
+            <tr th:each="yy: ${yys}">
+                <td>预约日期：</td>
+                <td th:text="${yy.registerDate}"></td>
+                <td>预约时间：</td>
+                <td>
+                    <script th:inline="javascript">
+                        document.write(fmt.formatDutyCode([[${yy.registerTime}]]));
+                    </script>
+                </td>
+                <td>预约状态：</td>
+                <td>
+                    <script th:inline="javascript">
+                        document.write(fmt.formatOrderType([[${yy.rptFlg}]]));
+                    </script>
+                </td>
+                <td>
+                    <a th:id="${yy.registerDate}+'_'+${yy.registerTime}"
+                       href="javascript:void(0);" onclick="SelCancel.cancel(this);">预约取消</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${yysize == null}" id="fill" style="padding-top: 75px;border-top: 1px solid #dcdddd;"/>
+</div>
+<div th:replace="commn/footer :: footer"/>
+<script th:inline="javascript">var _msg=[[${msg}]];</script>
+<script type="text/javascript" src="/static/appjs/selCancel.js"></script>
+</body>
+</html>
